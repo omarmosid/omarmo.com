@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
           <Link to="/">Home</Link>
         </ListItem>
         <ListItem mr="2em">
-          <Link to="/about">About</Link>
+          <Link to="/now">Now</Link>
         </ListItem>
         <ListItem mr="2em">
           <Link to="/blog">Blog</Link>

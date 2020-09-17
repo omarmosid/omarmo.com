@@ -14,9 +14,9 @@ const IndexPage = () => (
       </Heading>
       <Stack pb="1em">
         <Text fontSize={["1.6em", "2em", "2em", "2.4em"]} fontWeight="700" pb="0.6em">
-          A Self-taught <Text as="span" color="blue.200">Full-Stack Developer</Text> and <Text as="span" color="blue.200">User-Experience Enthusiast.</Text>
+          A Self-taught <Text as="span" color="blue.200">Full-Stack Developer</Text>. I love everything about the web and have a keen interest in user-experience and web performance.
         </Text>
-        <Text fontSize="1.4em" pb="0.6em">
+        {/* <Text fontSize="1.4em" pb="0.6em">
           I am great with Frontend stuff like React, GraphQL and Javasript
           (ES6).
         </Text>
@@ -27,7 +27,7 @@ const IndexPage = () => (
         <Text fontSize="1.4em" pb="0.6em">
           I also find have a keen interest UX design and am good with tools like
           Figma, Adobe Photoshop, Sketch.
-        </Text>
+        </Text> */}
       </Stack>
       <Flex>
         <Button

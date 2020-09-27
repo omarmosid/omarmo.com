@@ -6,9 +6,7 @@ import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
 
 const Tips = ({ data }) => {
-  console.log(data.allMdx.edges);
   const tips = data.allMdx.edges;
-  console.log(tips);
   return (
     <Layout>
       <SEO title="Tips" />
@@ -19,7 +17,7 @@ const Tips = ({ data }) => {
             <Card
               key={i}
               title={tip.node.frontmatter.title}
-              slug={tip.node.frontmatter.slug}
+              slug={`/tips/${tip.node.frontmatter.slug}`}
             />
           );
         })}

@@ -36,10 +36,13 @@ export const GlobalStyles = createGlobalStyle`
         pre {
             margin: 1em 0em 2em;
             padding: 2em;
-            background: #999;
             code {
                 font-size: 1.2rem;
             }
+        }
+
+        img {
+            margin-top: 1em;
         }
 
         ul, ol {
@@ -50,7 +53,17 @@ export const GlobalStyles = createGlobalStyle`
             color: teal;
             text-decoration: underline;
         }
-    } 
+    }
+
+    .hash-anchor {
+        position: absolute;
+        transform: translateX(-120%) translateY(-5%);
+        text-decoration: none;
+    }
+
+    .gatsby-resp-image-wrapper {
+        margin-top: 1em;
+    }
 
     @media (max-width: 480px) {
         h1 { font-size: 2.4rem; }

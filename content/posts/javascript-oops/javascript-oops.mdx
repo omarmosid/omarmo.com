@@ -1,0 +1,37 @@
+---
+title: Notes on Javascript and Object Oriented Programming
+slug: javascript-oops
+tags:
+  - Javascript
+  - ES6
+  - Object Oriented Programming
+createDate: 22-09-2020
+status: PUBLISHED
+---
+
+## Interface
+
+An interface in typescript allows us to define the stucture/shape/syantax of a class that implements it.
+This also means that a class that implements an interface is contractually bound to implment all its members.
+
+```js
+interface Person {
+  firstName: string;
+  lastName: string;
+  getFullName(): string;
+}
+
+// Implementation
+class Foo implements Person {
+  firstName: string;
+  lastName: string;
+  getFullName(): string {
+    return `My name is ${this.firstName} + ${this.lastName}`;
+  }
+}
+```
+
+## Duck Typing
+
+## Private vs Public members
+

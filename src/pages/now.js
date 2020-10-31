@@ -35,11 +35,11 @@ const Now = ({ data }) => {
             </span>{" "}
             Reading{" "}
             <Link
-              href="https://www.amazon.in/Eagles-Prey-Empire-Cato-Macro-ebook/dp/B002TZ3D4E"
+              href="https://www.amazon.in/dp/B002TXZQT6/"
               isExternal
               color="blue.400"
             >
-              The Eagle's Prey
+              The Eagle's Prophecy
             </Link>{" "}
             by Simon Scarrow
           </ListItem>
@@ -50,11 +50,11 @@ const Now = ({ data }) => {
             </span>{" "}
             Listening to{" "}
             <Link
-              href="https://podcasts.google.com/feed/aHR0cHM6Ly9qYWtlaHVtcGhyZXloaWdocGVyZm9ybWFuY2UubGlic3luLmNvbS9yc3M"
+              href="https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5zaW1wbGVjYXN0LmNvbS83eTFDYkFiTg"
               isExternal
               color="blue.400"
             >
-              High Performance Podcast
+              Maintainable
             </Link>
           </ListItem>
 
@@ -64,11 +64,11 @@ const Now = ({ data }) => {
             </span>{" "}
             Playing{" "}
             <Link
-              href="https://store.steampowered.com/app/356190/Middleearth_Shadow_of_War/"
+              href="https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/"
               isExternal
               color="blue.400"
             >
-              Shadow of War
+              Red Dead Redemption
             </Link>
           </ListItem>
 

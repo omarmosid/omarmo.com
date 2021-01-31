@@ -1,4 +1,4 @@
-import { Heading, Link, List, ListItem, Text } from "@chakra-ui/core";
+import { Heading, Link, List, ListItem, Text } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/layout/layout";

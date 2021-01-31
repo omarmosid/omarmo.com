@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import Layout from "../components/layout/layout";
-import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/core";
+import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 
 const shortcodes = { Link }; // Provide common components here
 

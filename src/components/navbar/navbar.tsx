@@ -7,7 +7,7 @@ import {
   ListItem,
   Switch,
   useColorMode,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { Link } from "gatsby";
 
 const Navbar: React.FC = () => {

@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
 
-import { Button, Flex, Heading, Stack, Text } from "@chakra-ui/core";
+import { Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 
 const IndexPage = () => (
   <Layout>

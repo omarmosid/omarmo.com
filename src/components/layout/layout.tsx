@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import Header from "../header/header";
 import Footer from "../footer/footer";
-import { Box, Stack } from "@chakra-ui/core";
+import { Box, Stack } from "@chakra-ui/react";
 
 import { GlobalStyles } from "../../utils/styles/global";
 

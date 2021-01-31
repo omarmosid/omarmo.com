@@ -1,4 +1,4 @@
-import { Flex, Heading, Image, Stack, Text } from "@chakra-ui/core";
+import { Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 
 import Navbar from "../components/navbar/navbar";

@@ -1,4 +1,4 @@
-import { Heading, Stack } from "@chakra-ui/core";
+import { Heading, Stack } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
 import Card from "../components/card/card";

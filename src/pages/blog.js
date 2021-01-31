@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
-import { Heading, Stack } from "@chakra-ui/core";
+import { Heading, Stack } from "@chakra-ui/react";
 import SEO from "../components/seo/seo";
 import Card from "../components/card/card";
 

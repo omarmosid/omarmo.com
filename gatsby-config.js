@@ -79,7 +79,7 @@ module.exports = {
     // Styles
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-chakra-ui`,
+      resolve: `@chakra-ui/gatsby-plugin`,
       options: {
         isResettingCSS: true,
       },

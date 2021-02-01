@@ -36,7 +36,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Step-1: Fetch Tips
   const tipsResult = await graphql(`
     query AllTips {
-      allMdx(filter: { fields: { collection: { eq: "tips" } } }) {
+      allMdx(
+        filter: {
+          fields: { collection: { eq: "tips" } }
+          frontmatter: { status: { eq: "PUBLISHED" } }
+        }
+      ) {
         edges {
           node {
             id

@@ -9,6 +9,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { Link } from "gatsby";
+import { BsSun, BsMoon } from "react-icons/bs";
 
 const Navbar: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -51,11 +52,19 @@ const Navbar: React.FC = () => {
         top="20px"
         right="20px"
       >
-        <IconButton
-          aria-label="Change Light/Dark"
-          onClick={toggleColorMode}
-          icon={colorMode === "dark" ? "sun" : "moon"}
-        />
+        {colorMode === "dark" ? (
+          <IconButton
+            aria-label="Change Light/Dark"
+            onClick={toggleColorMode}
+            icon={<BsSun />}
+          />
+        ) : (
+          <IconButton
+            aria-label="Change Light/Dark"
+            onClick={toggleColorMode}
+            icon={<BsMoon />}
+          />
+        )}
       </Flex>
     </Flex>
   );

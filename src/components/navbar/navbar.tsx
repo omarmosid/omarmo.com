@@ -3,6 +3,7 @@ import {
   Flex,
   Heading,
   IconButton,
+  Img,
   List,
   ListItem,
   Switch,
@@ -10,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "gatsby";
 import { BsSun, BsMoon } from "react-icons/bs";
+import Logo from "../../images/logo.png"
 
 const Navbar: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -20,9 +22,9 @@ const Navbar: React.FC = () => {
         justifyContent={["center", "center", "left", "left"]}
         mb={["1em", "0em", "0em", "0em"]}
       >
-        <Heading as="h1">
-          <Link to="/">Omar</Link>
-        </Heading>
+          <Link to="/">
+            <Img src={Logo} height="48px" />
+          </Link>
       </Flex>
       <List
         as="ol"
@@ -38,11 +40,14 @@ const Navbar: React.FC = () => {
           <Link to="/now">Now</Link>
         </ListItem>
         <ListItem mr="2em">
+          <Link to="/projects">Projects</Link>
+        </ListItem>
+        {/* <ListItem mr="2em">
           <Link to="/blog">Blog</Link>
         </ListItem>
         <ListItem>
           <Link to="/tips">Tips</Link>
-        </ListItem>
+        </ListItem> */}
       </List>
       <Flex
         justifyContent="flex-end"

@@ -9,7 +9,6 @@ import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 const shortcodes = { Link }; // Provide common components here
 
 const Post = ({ data, pageContext }) => {
-  console.log(pageContext);
   return (
     <Layout>
       <Stack as="header" className="article__header" py={[1 / 2, 1 / 4, "8em"]}>

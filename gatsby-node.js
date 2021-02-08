@@ -31,7 +31,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   /**
-   * * 2. Collection: Posts
+   * * 1. Collection: Tips
    */
   // Step-1: Fetch Tips
   const tipsResult = await graphql(`
@@ -83,8 +83,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
    */
   // Step-1: Fetch Posts
   const postsResult = await graphql(`
-    query AllTips {
-      allMdx(filter: { fields: { collection: { eq: "posts" } } }) {
+    query AllPosts {
+      allMdx(
+        filter: {
+          fields: { collection: { eq: "posts" } }
+          frontmatter: { status: { eq: "PUBLISHED" } }
+        }
+      ) {
         edges {
           node {
             id
@@ -117,6 +122,54 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         // For pagination
         prev: index === 0 ? null : posts[index - 1].node,
         next: index === posts.length - 1 ? null : posts[index + 1].node,
+      },
+    });
+  });
+
+  /**
+   * * 3. Collection: Projects
+   */
+  // Step-1: Fetch Projects
+  const projectsResult = await graphql(`
+    query AllProjects {
+      allMdx(
+        filter: {
+          fields: { collection: { eq: "projects" } }
+          frontmatter: { status: { eq: "PUBLISHED" } }
+        }
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              slug
+              createDate
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  // Step-2: Handle Errors while fetching projects
+  if (projectsResult.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+  }
+
+  // Step-3: Flatten to simpler projects object
+  const projects = projectsResult.data.allMdx.edges;
+
+  // Step-4: Create pages dynamically for each project node
+  projects.forEach((project, index) => {
+    createPage({
+      path: `/projects/${project.node.frontmatter.slug}`,
+      component: path.resolve("./src/templates/project.js"),
+      context: {
+        id: project.node.id,
+        // For pagination
+        prev: index === 0 ? null : projects[index - 1].node,
+        next: index === projects.length - 1 ? null : projects[index + 1].node,
       },
     });
   });

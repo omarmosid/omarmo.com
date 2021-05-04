@@ -1,24 +1,24 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
-import ProjectCard from "../components/card/projectcard";
-import Hero from "../components/hero/hero";
+import ProjectCard from "../components/reusable/card/projectcard";
 import Layout from "../components/layout/layout";
+import Hero from "../components/reusable/hero/hero";
 import SEO from "../components/seo/seo";
+import FullLayout from "../components/layout/FullLayout";
 
 const Projects = ({ data, pageContext }) => {
-  console.log(data);
   const { edges: projectEdges } = data.allMdx;
   return (
-    <Layout>
+    <FullLayout>
       <SEO title="Projects" />
       <Hero title="Projects" />
-      <SimpleGrid columns={2} gap={10}>
+      <SimpleGrid columns={[1, 1, 2]} gap={10}>
         {projectEdges.map(({ node: projectNode }) => {
           return <ProjectCard project={projectNode} />;
         })}
       </SimpleGrid>
-    </Layout>
+    </FullLayout>
   );
 };
 

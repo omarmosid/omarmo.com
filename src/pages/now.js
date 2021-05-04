@@ -1,14 +1,14 @@
 import { Heading, Link, List, ListItem, Text } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
-import Layout from "../components/layout/layout";
+import FullLayout from "../components/layout/FullLayout";
 import SEO from "../components/seo/seo";
 
 const Now = ({ data }) => {
   return (
     <>
       <SEO title="Now" description="This page shows what I have been doing." />
-      <Layout>
+      <FullLayout>
         <Heading as="h1">Now</Heading>
         <Heading as="h2" pb="2em" fontSize="1.2em">
           This page shows what I have been doing.
@@ -20,13 +20,13 @@ const Now = ({ data }) => {
             </span>{" "}
             Reading{" "}
             <Link
-              href="https://www.amazon.in/Getting-Things-Done-Stress-free-Productivity-ebook/dp/B00SHL3V8M"
+              href="Predictablly Irrational"
               isExternal
               color="blue.400"
             >
-              Getting things done
+              Predictably Irrational: The Hidden Forces that Shape Our Decisions
             </Link>{" "}
-            by David Allen
+            by Dan Ariely
           </ListItem>
 
           <ListItem>
@@ -35,16 +35,16 @@ const Now = ({ data }) => {
             </span>{" "}
             Reading{" "}
             <Link
-              href="https://www.amazon.in/dp/B002TXZQT6/"
+              href="https://amzn.to/3ebGoWZ"
               isExternal
               color="blue.400"
             >
-              The Eagle's Prophecy
+              The Eagle In The Sand (Eagles of the Empire 7): Roman Legion 7
             </Link>{" "}
             by Simon Scarrow
           </ListItem>
 
-          <ListItem>
+          {/* <ListItem>
             <span role="img" aria-label="Headphone Emoji">
               🎧
             </span>{" "}
@@ -56,7 +56,7 @@ const Now = ({ data }) => {
             >
               Maintainable
             </Link>
-          </ListItem>
+          </ListItem> */}
 
           <ListItem>
             <span role="img" aria-label="Videogame controller Emoji">
@@ -72,9 +72,11 @@ const Now = ({ data }) => {
             </Link>
           </ListItem>
 
-          <Text mt="2em">Last updated on {data.siteBuildMetadata.buildTime}</Text>
+          <Text mt="2em">
+            Last updated on {data.siteBuildMetadata.buildTime}
+          </Text>
         </List>
-      </Layout>
+      </FullLayout>
     </>
   );
 };

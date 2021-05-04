@@ -1,17 +1,17 @@
-import { Heading, Text } from '@chakra-ui/react'
-import React from 'react'
-import Layout from '../components/layout/layout'
-import SEO from '../components/seo/seo'
+import { Heading, Text } from "@chakra-ui/react";
+import React from "react";
+import FullLayout from "../components/layout/FullLayout";
+import SEO from "../components/seo/seo";
 
 const Contact = () => {
-    return (
-        <Layout>
-            <SEO title="Contact" />
-            <Heading as="h1">Contact</Heading>
-            <Text>Coming soon...</Text>
-            <a href="mailto:omar.mo.sid@gmail.com">Get in touch</a>
-        </Layout>
-    )
-}
+  return (
+    <FullLayout>
+      <SEO title="Contact" />
+      <Heading as="h1">Contact</Heading>
+      <Text>Coming soon...</Text>
+      <a href="mailto:omar.mo.sid@gmail.com">Get in touch</a>
+    </FullLayout>
+  );
+};
 
-export default Contact
+export default Contact;

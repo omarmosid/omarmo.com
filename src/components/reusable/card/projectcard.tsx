@@ -20,9 +20,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <Link as={GatsbyLink} to={`/projects/${frontmatter.slug}`}>
       <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
-        <Box w="100%" height="300px">
+        <Box w="100%" h="300px">
           {frontmatter.featuredImage ? (
-            <Img fluid={frontmatter.featuredImage.childImageSharp.fluid} />
+            <Img fluid={frontmatter.featuredImage.childImageSharp.fluid} style={{ height: "100%", width: "100%", objectFit: "cover" }}/>
           ) : null}
         </Box>
         <Box p="6">

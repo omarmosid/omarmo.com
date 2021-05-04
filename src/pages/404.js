@@ -1,7 +1,7 @@
 import { Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 
-import Navbar from "../components/navbar/navbar";
+import Navbar from "../components/reusable/navbar/navbar";
 import SEO from "../components/seo/seo";
 
 const NotFoundPage = () => {

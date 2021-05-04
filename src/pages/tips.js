@@ -1,14 +1,14 @@
 import { Heading, Stack } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
-import Card from "../components/card/card";
-import Layout from "../components/layout/layout";
+import Card from "../components/reusable/card/card";
 import SEO from "../components/seo/seo";
+import FullLayout from "../components/layout/FullLayout";
 
 const Tips = ({ data }) => {
   const tips = data.allMdx.edges;
   return (
-    <Layout>
+    <FullLayout>
       <SEO title="Tips" />
       <Heading as="h1">Tips</Heading>
       <Stack>
@@ -22,7 +22,7 @@ const Tips = ({ data }) => {
           );
         })}
       </Stack>
-    </Layout>
+    </FullLayout>
   );
 };
 
@@ -40,7 +40,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             slug
-            createDate
+            createdAt
             status
           }
         }

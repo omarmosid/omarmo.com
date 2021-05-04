@@ -48,7 +48,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             frontmatter {
               title
               slug
-              createDate
+              createdAt
             }
           }
         }
@@ -96,7 +96,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             frontmatter {
               title
               slug
-              createDate
+              createdAt
             }
           }
         }
@@ -144,7 +144,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             frontmatter {
               title
               slug
-              createDate
+              createdAt
             }
           }
         }

@@ -3,12 +3,13 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
 import { Heading, Stack } from "@chakra-ui/react";
 import SEO from "../components/seo/seo";
-import Card from "../components/card/card";
+import Card from "../components/reusable/card/card";
+import FullLayout from "../components/layout/FullLayout";
 
 const Blog = ({ data }) => {
   const posts = data.allMdx.edges;
   return (
-    <Layout>
+    <FullLayout>
       <SEO title="Blog" />
       <Heading as="h1">Blog</Heading>
       <Stack>
@@ -22,7 +23,7 @@ const Blog = ({ data }) => {
           );
         })}
       </Stack>
-    </Layout>
+    </FullLayout>
   );
 };
 
@@ -40,7 +41,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             slug
-            createDate
+            createdAt
             status
           }
         }

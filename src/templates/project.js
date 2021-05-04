@@ -1,16 +1,19 @@
-import { Heading, Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
+import { graphql } from "gatsby";
 import React from "react";
-import Layout from "../components/layout/layout";
+import SidebarLayout from "../components/layout/SidebarLayout";
+import Content from "../components/reusable/content/Content";
+import ContentHero from "../components/reusable/hero/ContentHero";
+import PrevNext from "../components/reusable/prevnext/PrevNext";
 
 const Project = ({ data, pageContext }) => {
   return (
-    <Layout>
-      <Stack as="header" className="article__header" py={[1 / 2, 1 / 4, "8em"]}>
-        <Heading as="h1" color="teal.400">
-          {data.mdx.frontmatter.title}
-        </Heading>
+    <SidebarLayout Hero={() => <ContentHero meta={data.mdx.frontmatter} />}>
+      <Stack as="article" py="2em" maxW="4xl">
+        <Content content={data.mdx.body} />
+        <PrevNext pageContext={pageContext} />
       </Stack>
-    </Layout>
+    </SidebarLayout>
   );
 };
 
@@ -25,6 +28,14 @@ export const pageQuery = graphql`
         slug
         createdAt
         status
+        tags
+        featuredImage {
+          childImageSharp {
+            fluid(quality: 99, maxWidth: 1400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

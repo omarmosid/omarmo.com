@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 
 import Header from "../reusable/header/header";
-import Footer from "../reusable/footer/footer";
+import Footer from "../reusable/footer/Footer";
 import { Box, Stack } from "@chakra-ui/react";
 
 const Layout = ({ children }) => {

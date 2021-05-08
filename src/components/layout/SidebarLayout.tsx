@@ -1,6 +1,6 @@
 import { Box, Container, Grid, GridItem, SimpleGrid } from "@chakra-ui/layout";
 import React, { ReactNode } from "react";
-import Footer from "../reusable/footer/footer";
+import Footer from "../reusable/footer/Footer";
 import ContentHero from "../reusable/hero/ContentHero";
 import Navbar from "../reusable/navbar/Navbar";
 import ThemeSwitch from "../reusable/ThemeSwitch";

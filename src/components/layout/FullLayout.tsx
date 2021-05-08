@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Container } from "@chakra-ui/layout";
 import Navbar from "../reusable/navbar/Navbar";
-import Footer from "../reusable/footer/footer";
+import Footer from "../reusable/footer/Footer";
 import ThemeSwitch from "../reusable/ThemeSwitch";
 
 const FullLayout = ({ children }) => {

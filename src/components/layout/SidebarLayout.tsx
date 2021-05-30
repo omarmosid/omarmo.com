@@ -1,7 +1,14 @@
-import { Box, Container, Grid, GridItem, SimpleGrid } from "@chakra-ui/layout";
+import {
+  Box,
+  Center,
+  Container,
+  Flex,
+  Grid,
+  GridItem,
+  SimpleGrid,
+} from "@chakra-ui/layout";
 import React, { ReactNode } from "react";
 import Footer from "../reusable/footer/Footer";
-import ContentHero from "../reusable/hero/ContentHero";
 import Navbar from "../reusable/navbar/Navbar";
 import ThemeSwitch from "../reusable/ThemeSwitch";
 
@@ -16,14 +23,16 @@ const SidebarLayout = ({ Hero, Sidebar, children }) => {
       <Navbar />
       <ThemeSwitch />
       {Hero && <Hero />}
-      <Box minH="70vh">
-        <Container maxW={["sm", "md", "6xl"]}>
-          <Grid templateColumns={["1fr", "7fr 3fr", "7fr 3fr"]} gap={12}>
-            <GridItem>{children}</GridItem>
-            <GridItem>{Sidebar && <Sidebar />}</GridItem>
-          </Grid>
-        </Container>
-      </Box>
+      <Center px={[6, 12]} py={[2, 8]}>
+        <SimpleGrid
+          columns={[1, 1, 2]}
+          gap={8}
+          gridTemplateColumns={["minmax(0, 1fr)", "minmax(0, 1fr)", "3fr 1fr"]}
+        >
+          <Box>{children}</Box>
+          <Box>{Sidebar && <Sidebar />}</Box>
+        </SimpleGrid>
+      </Center>
       <Footer />
     </>
   );

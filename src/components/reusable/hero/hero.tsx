@@ -1,4 +1,4 @@
-import { Container, Flex, Heading } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading } from "@chakra-ui/react";
 import React from "react";
 
 type HeroProps = {
@@ -7,10 +7,10 @@ type HeroProps = {
 
 const Hero: React.FC<HeroProps> = ({ title, children }) => {
   return (
-    <Flex p="2rem">
-      <Heading as="h1" fontSize="6xl">{title}</Heading>
+    <Box pt={[8, 12]}>
+      <Heading as="h1" fontSize="6xl" mb={4}>{title}</Heading>
       {children}
-    </Flex>
+    </Box>
   );
 };
 

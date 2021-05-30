@@ -3,14 +3,31 @@ import { Link } from "gatsby";
 import React from "react";
 
 type CardProps = {
-  title: string;
-  slug: string;
+  frontmatter: CardFrontmatterProps;
 };
 
-const Card: React.FC<CardProps> = ({ title, slug }) => {
+type CardFrontmatterProps = {
+  title: string;
+  slug: string;
+  featuredImage: any;
+};
+
+const Card: React.FC<CardProps> = ({ frontmatter }) => {
+  console.log(frontmatter);
+  const { title, slug }: any = frontmatter;
+
   return (
-    <Box to={slug} as={Link} border="1px solid #aaa" borderRadius="4px" p="2em" my="1em">
-      <Heading as="h4" fontSize="1.6em">{title}</Heading>
+    <Box
+      to={slug}
+      as={Link}
+      border="1px solid #aaa"
+      borderRadius="4px"
+      p="2em"
+      my="1em"
+    >
+      <Heading as="h4" fontSize="1.6em">
+        {title}
+      </Heading>
     </Box>
   );
 };

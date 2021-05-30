@@ -1,7 +1,7 @@
 import { Heading, Stack } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
-import Card from "../components/reusable/card/card";
+import Card from "../components/reusable/card/Card";
 import SEO from "../components/seo/seo";
 import FullLayout from "../components/layout/FullLayout";
 
@@ -16,8 +16,7 @@ const Tips = ({ data }) => {
           return (
             <Card
               key={i}
-              title={tip.node.frontmatter.title}
-              slug={`/tips/${tip.node.frontmatter.slug}`}
+              frontmatter={tip.node.frontmatter}
             />
           );
         })}

@@ -2,22 +2,22 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Heading, Stack } from "@chakra-ui/react";
 import SEO from "../components/seo/seo";
-import Card from "../components/reusable/card/card";
+import Card from "../components/reusable/card/Card";
 import FullLayout from "../components/layout/FullLayout";
+import Hero from "../components/reusable/hero/Hero";
 
 const Blog = ({ data }) => {
   const posts = data.allMdx.edges;
   return (
     <FullLayout>
       <SEO title="Blog" />
-      <Heading as="h1">Blog</Heading>
+      <Hero as="h1" title="Blog"></Hero>
       <Stack>
         {posts.map((post, i) => {
           return (
             <Card
               key={i}
-              title={post.node.frontmatter.title}
-              slug={`/posts/${post.node.frontmatter.slug}`}
+              frontmatter={post.node.frontmatter}
             />
           );
         })}

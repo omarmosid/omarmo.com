@@ -6,21 +6,22 @@ import FullLayout from "../components/layout/FullLayout";
 const IndexPage = () => (
   <FullLayout>
     <SEO title="Home" />
-    <Stack justifyContent="center" my={["2em", "4em", "4em", "8em"]}>
-      <Heading as="h1" fontSize={["2.4em", "2.4em", "3em", "4em"]}>
+    <Stack justifyContent="center" my={[20, 14]}>
+      <Heading as="h1" fontSize={["6xl", "3em", "4em"]}>
         Hi I'm{" "}
         <Text as="span" color="blue.400">
           Omar
         </Text>
+        !
       </Heading>
       <Stack pb="1em">
         <Text
           fontSize={["1.6em", "2em", "2em", "2.4em"]}
-          fontWeight="700"
+          fontWeight="400"
           pb="0.6em"
         >
           A Self-taught{" "}
-          <Text as="span" color="blue.200">
+          <Text as="span" color="blue.400">
             Full-Stack Developer
           </Text>
           . I love everything about the web and have a keen interest in

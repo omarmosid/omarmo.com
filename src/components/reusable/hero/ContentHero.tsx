@@ -17,17 +17,17 @@ const ContentHero: React.FC<ContentHeroProps> = ({ meta }) => {
           style={{ width: "100%", height: "100vh", objectFit: "cover" }}
         />
       )}
-      <Container maxW="6xl" pt={10} pb={8}>
-        <Heading fontSize={["4xl", "6xl"]} pb={6}>
+      <Container maxW="7xl" pt={10} pb={8}>
+        <Heading fontSize={["4xl", "6xl"]} textAlign={["left"]} pb={10}>
           {meta.title}
         </Heading>
         <Box w="100%">
-          <Text>Posted on {meta.createdAt}</Text>
           {meta.tags && (
             <Text>
-              Filed in <Tags tags={meta.tags} />
+              <Tags tags={meta.tags} />
             </Text>
           )}
+          <Text>Posted on {meta.createdAt}</Text>
         </Box>
       </Container>
     </Stack>

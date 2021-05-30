@@ -18,35 +18,40 @@ const theme = extendTheme({
   },
   breakpoints,
   styles: {
-    global: (props) => ({
+    global: props => ({
       ".content": {
         "h1, h2, h3, h4, h5, h6": {
           fontWeight: "bold",
-          mb: "6",
+          mb: ["2", "6"],
         },
         h1: {
-          fontSize: "4xl"
+          fontSize: "4xl",
         },
         h2: {
-          fontSize: "3xl"
+          fontSize: ["2xl", "3xl"],
         },
         h3: {
-          fontSize: "2xl"
+          fontSize: "2xl",
         },
         h4: {
-          fontSize: "xl"
+          fontSize: "xl",
         },
         h5: {
-          fontSize: "lg"
+          fontSize: "lg",
         },
         h6: {
-          fontSize: "md"
+          fontSize: "md",
         },
         pre: {
           mb: 6,
           code: {
-            fontSize: ["sm", "sm"]
-          }
+            wordWrap: "normal",
+            wordBreak: "normal",
+          },
+        },
+        ".hash-anchor": {
+          display: "inline-flex",
+          transform: `translateX(22%) translateY(3px)`,
         },
         blockquote: {
           mb: 6,
@@ -57,7 +62,7 @@ const theme = extendTheme({
           p: {
             p: 4,
             color: props.colorMode === "light" ? "gray.200" : "gray.700",
-          }
+          },
         },
         "p, a, li, span": {
           fontSize: "xl",
@@ -68,17 +73,17 @@ const theme = extendTheme({
         a: {
           color: props.colorMode === "light" ? "blue.600" : "blue.400",
           "&:hover": {
-            textDecoration: "underline"
-          }
+            textDecoration: "underline",
+          },
         },
         "ul, ol": {
           ml: "1rem",
           pl: "1rem",
-          listStylePosition: "inside"
-        }
-      }
-    })
-  }
+          listStylePosition: "inside",
+        },
+      },
+    }),
+  },
 });
 
 export default theme;

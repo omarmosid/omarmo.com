@@ -60,16 +60,22 @@ module.exports = {
               className: `hash-anchor`,
             },
           },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              showLineNumbers: true
+            }
+          },
           `gatsby-remark-embedder`,
           `gatsby-remark-copy-linked-files`,
-          {
-            resolve: `gatsby-remark-vscode`,
-            options: {
-              marker: "•",
-              default: "Default Light+",
-              dark: "Default Dark+",
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-vscode`,
+          //   options: {
+          //     marker: "•",
+          //     default: "Default Light+",
+          //     dark: "Default Dark+",
+          //   },
+          // },
           // `gatsby-remark-shiki`,
           {
             resolve: `gatsby-remark-images`,

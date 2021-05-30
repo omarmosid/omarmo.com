@@ -13,7 +13,7 @@ const shortcodes = { Link };
 const Content: React.FC<ContentProps> = ({ content }) => {
   return (
     <>
-    <Box className="content" w="100%" border="1px solid red">
+      <Box className="content" w="100%">
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{content}</MDXRenderer>
         </MDXProvider>

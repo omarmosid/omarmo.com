@@ -2,8 +2,8 @@ import { Stack } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
 import FullLayout from "../components/layout/FullLayout";
-import Card from "../components/reusable/card/Card.tsx";
-import Hero from "../components/reusable/hero/Hero.tsx";
+import Card from "../components/reusable/card/card.tsx";
+import Hero from "../components/reusable/hero/hero.tsx";
 import SEO from "../components/seo/seo";
 
 const Blog = ({ data }) => {

@@ -2,7 +2,7 @@ import { SimpleGrid } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
 import ProjectCard from "../components/reusable/card/projectcard";
-import Hero from "../components/reusable/hero/Hero.tsx";
+import Hero from "../components/reusable/hero/hero.tsx";
 import SEO from "../components/seo/seo";
 import FullLayout from "../components/layout/FullLayout";
 

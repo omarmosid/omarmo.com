@@ -2,7 +2,7 @@ import { Heading, Link, List, ListItem, Text } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
 import FullLayout from "../components/layout/FullLayout";
-import Hero from "../components/reusable/hero/Hero";
+import Hero from "../components/reusable/hero/Hero.tsx";
 import SEO from "../components/seo/seo";
 
 const Now = ({ data }) => {

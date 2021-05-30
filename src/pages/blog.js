@@ -1,10 +1,10 @@
-import React from "react";
+import { Stack } from "@chakra-ui/react";
 import { graphql } from "gatsby";
-import { Heading, Stack } from "@chakra-ui/react";
-import SEO from "../components/seo/seo";
-import Card from "../components/reusable/card/Card";
+import React from "react";
 import FullLayout from "../components/layout/FullLayout";
+import Card from "../components/reusable/card/Card";
 import Hero from "../components/reusable/hero/Hero";
+import SEO from "../components/seo/seo";
 
 const Blog = ({ data }) => {
   const posts = data.allMdx.edges;

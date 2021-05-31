@@ -65,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                 </Link>
               </Box>
 
-              <Box py="2" px="4">
+              {/* <Box py="2" px="4">
                 <Link as={GatsbyLink} to="/blog">
                   Blog
                 </Link>
@@ -75,7 +75,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                 <Link as={GatsbyLink} to="/tips">
                   Tips
                 </Link>
-              </Box>
+              </Box> */}
             </Flex>
           </Flex>
         </Flex>

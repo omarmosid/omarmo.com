@@ -17,6 +17,7 @@ const Tips = ({ data }) => {
             <Card
               key={i}
               frontmatter={tip.node.frontmatter}
+              to={`/tips/${tip.node.frontmatter.slug}`}
             />
           );
         })}

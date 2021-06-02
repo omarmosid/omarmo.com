@@ -4,21 +4,21 @@ import React from "react";
 
 type CardProps = {
   frontmatter: CardFrontmatterProps;
+  to: any;
 };
 
 type CardFrontmatterProps = {
   title: string;
-  slug: string;
   featuredImage: any;
 };
 
-const Card: React.FC<CardProps> = ({ frontmatter }) => {
+const Card: React.FC<CardProps> = ({ frontmatter, to }) => {
   console.log(frontmatter);
   const { title, slug }: any = frontmatter;
 
   return (
     <Box
-      to={slug}
+      to={to}
       as={Link}
       border="1px solid #aaa"
       borderRadius="4px"

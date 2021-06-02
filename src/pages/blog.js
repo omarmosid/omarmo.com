@@ -18,6 +18,7 @@ const Blog = ({ data }) => {
             <Card
               key={i}
               frontmatter={post.node.frontmatter}
+              to={`/posts/${post.node.frontmatter.slug}`}
             />
           );
         })}

@@ -1,7 +1,7 @@
 import { Box, Container, Flex, Heading, Stack, Text } from "@chakra-ui/layout";
 import React from "react";
-import Img from "gatsby-image";
 import Tags from "../tags/Tags";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 type ContentHeroProps = {
   meta: any;
@@ -12,9 +12,10 @@ const ContentHero: React.FC<ContentHeroProps> = ({ meta }) => {
   return (
     <Stack as="header" w="100%" position="relative" alignItems="center">
       {meta.featuredImage && (
-        <Img
-          fluid={meta.featuredImage.childImageSharp.fluid}
-          style={{ width: "100%", height: "100vh", objectFit: "cover" }}
+        <GatsbyImage
+          image={meta.featuredImage.childImageSharp.gatsbyImageData}
+          alt="Cover"
+          style={{ width: "100%", height: "100vh" }}
         />
       )}
       <Container maxW="7xl" pt={10} pb={8}>

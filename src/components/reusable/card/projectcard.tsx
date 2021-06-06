@@ -1,7 +1,7 @@
 import { Box, Heading, Image, Link } from "@chakra-ui/react";
 import React from "react";
-import Img from "gatsby-image";
 import { Link as GatsbyLink } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 type ProjectCardProps = {
   project: Project;
@@ -22,7 +22,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
         <Box w="100%" h="300px">
           {frontmatter.featuredImage ? (
-            <Img fluid={frontmatter.featuredImage.childImageSharp.fluid} style={{ height: "100%", width: "100%", objectFit: "cover" }}/>
+            <GatsbyImage
+              image={frontmatter.featuredImage.childImageSharp.gatsbyImageData}
+              alt="Card image"
+              // style={{ height: "100%", width: "100%", objectFit: "cover" }}
+            />
           ) : null}
         </Box>
         <Box p="6">

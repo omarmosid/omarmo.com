@@ -39,9 +39,7 @@ export const pageQuery = graphql`
             status
             featuredImage {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: FIXED)
               }
             }
           }

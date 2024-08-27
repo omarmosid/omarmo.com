@@ -7,8 +7,6 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 }
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  distDir: "out",
-};
+const nextConfig = {};
 
 export default nextConfig;

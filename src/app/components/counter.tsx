@@ -6,8 +6,8 @@ type CounterProps = {
   initialCount: number;
 };
 
-const Counter: React.FC<CounterProps> = ({ initialCount = 0 }) => {
-  const [count, setCount] = useState<number>(0);
+const Counter: React.FC<CounterProps> = ({ initialCount = 50 }) => {
+  const [count, setCount] = useState<number>(initialCount);
 
   const increment = () => {
     setCount(count + 1);

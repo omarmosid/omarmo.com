@@ -1,22 +1,36 @@
 import { MDXContent } from "@/app/components/mdx-content";
 import { getAllPosts, getPost } from "@/lib/data";
+import Image from "next/image";
 import { notFound } from "next/navigation";
+import { BlogHeader } from "../header";
 
-export const dynamicParams = false;
-
-export const generateStaticParams = () => {
-  return getAllPosts().map((p) => ({ slug: p.slug }));
+type PostProps = {
+  params: {
+    slug: string;
+  };
 };
 
-const PostPage = ({ params }: { params: { slug: string } }) => {
+export const generateStaticParams = (): PostProps["params"][] => {
+  const postParams = getAllPosts().map((p) => ({ slug: p.slug }));
+  return postParams;
+};
+
+// Commenting out because of this bug: https://github.com/vercel/next.js/issues/56253
+// export const dynamicParams = false;
+
+const PostPage = ({ params }: PostProps) => {
   const slug = decodeURI(params.slug);
   const post = getPost(slug);
   if (!post) notFound();
 
   return (
     <>
-      ddd
-      <MDXContent code={post.code} />
+      <article>
+        <BlogHeader post={post} />
+        <div className="prose max-w-prose mx-auto lg:text-lg font-serif px-2 py-8">
+          <MDXContent code={post.code} />
+        </div>
+      </article>
     </>
   );
 };

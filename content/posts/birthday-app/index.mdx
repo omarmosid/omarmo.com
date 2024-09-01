@@ -1,0 +1,125 @@
+---
+title: 🎉 How to Build a Birthday Reminder App with Cloudflare Workers No More "Oops, I Forgot!" Moments!
+slug: birthday-app
+date: 2024-08-31 13:22
+cover: birthday-app.jpg
+---
+
+Hey there, forgetful human! Ever found yourself panicking because you forgot your friend's birthday? Been there, done that, bought the apology cake. Well, it's time to save your future self from embarrassment! Let's build a snazzy Birthday Reminder app using Cloudflare Workers. Yep, we're talking about a serverless wonder that's always awake so you don’t have to be!
+
+## 🚀 What’s the Plan, Stan?
+
+Here's the game plan: 
+1. Use Cloudflare Workers (because who doesn't like serverless coolness?).
+2. Create an endpoint to store birthdays (no more scribbling them on random papers!).
+3. Set up a trigger to send you reminders. 
+
+Are you ready? Let's do this!
+
+## 🛠️ Step 1: Setting Up Cloudflare Workers
+
+First off, you need a Cloudflare account. If you don’t have one, pause here, go get one (it’s free), and then come back. We’ll wait… ⏳
+
+Now, let’s install Wrangler, the CLI tool to manage Workers. Open up your terminal and run:
+
+```bash
+npm install -g wrangler
+```
+
+Once that's done, authenticate your Cloudflare account:
+
+```bash
+wrangler login
+```
+
+Boom! You're in. Now, let's create a new Worker project:
+
+```bash
+wrangler generate birthday-reminder
+cd birthday-reminder
+```
+
+## 📝 Step 2: Code the Birthday Storage Endpoint
+
+Time to whip up some code! In the `src/index.js` file, replace the content with:
+
+```javascript
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request))
+})
+
+const BIRTHDAYS = new Map();
+
+async function handleRequest(request) {
+  const { pathname, searchParams } = new URL(request.url);
+
+  if (pathname === '/store') {
+    const name = searchParams.get('name');
+    const date = searchParams.get('date');
+    if (name && date) {
+      BIRTHDAYS.set(name, date);
+      return new Response(`${name}'s birthday is set for ${date}! 🎉`);
+    } else {
+      return new Response('Oops! Missing name or date.', { status: 400 });
+    }
+  }
+
+  if (pathname === '/remind') {
+    const reminders = Array.from(BIRTHDAYS).map(([name, date]) => {
+      return `${name}: ${date}`;
+    }).join('\n');
+    
+    return new Response(reminders || 'No birthdays set yet!', { status: 200 });
+  }
+
+  return new Response('Hello! Use /store?name=NAME&date=YYYY-MM-DD to add a birthday.', { status: 200 });
+}
+```
+
+What’s happening here? 
+
+- `/store?name=NAME&date=YYYY-MM-DD`: This is your input endpoint. Store a birthday by passing the name and date.
+- `/remind`: This fetches all stored birthdays so you can see who you need to celebrate!
+
+## ⚡️ Step 3: Deploy and Test
+
+Alright, we’re at the final boss level! Time to deploy this bad boy:
+
+```bash
+wrangler publish
+```
+
+Wrangler will give you a sweet URL like `https://birthday-reminder.yourdomain.workers.dev`. Let’s try storing a birthday:
+
+```bash
+curl "https://birthday-reminder.yourdomain.workers.dev/store?name=John&date=2024-09-10"
+```
+
+And now, retrieve your list of birthdays:
+
+```bash
+curl "https://birthday-reminder.yourdomain.workers.dev/remind"
+```
+
+You should see something like:
+
+```
+John: 2024-09-10
+```
+
+## 🎯 Step 4: Automate the Reminders (Optional but Cool)
+
+Let’s say you don’t want to keep checking this app like a caveperson. You can set up a cron job using Cloudflare Workers’ Cron Triggers (fancy, right?) to remind you every day. Add this to your `wrangler.toml`:
+
+```toml
+[[triggers]]
+crons = ["0 9 * * *"]
+```
+
+This tells the Worker to check birthdays every day at 9 AM UTC. You can tweak the time to fit your needs.
+
+## 🎉 Conclusion: You’re a Forgetting-Things No More!
+
+And there you have it! A simple, quirky birthday reminder app that’s always on, just like your tendency to forget stuff. But not anymore, thanks to Cloudflare Workers!
+
+Now, go ahead and add all those important dates before you forget. Your future self (and your friends) will thank you!

@@ -1,7 +1,29 @@
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 import { defineConfig, s } from "velite";
 
 // `s` is extended from Zod with some custom schemas,
 // you can also import re-exported `z` from `velite` if you don't need these extension schemas.
+
+const rehypePrettyCodeOptions = {
+  defaultLang: {
+    block: "ts",
+    inline: "console",
+  },
+  theme: "night-owl",
+  grid: true,
+};
+
+const rehypeAutolinkHeadingsOptions = {
+  behavior: "wrap",
+  content: {
+    type: "element",
+    tagName: "span",
+    properties: { className: ["icon", "icon-link"] },
+  },
+};
 
 export default defineConfig({
   collections: {
@@ -21,7 +43,16 @@ export default defineConfig({
           code: s.mdx(), // transform markdown to html
         })
         // more additional fields (computed fields)
-        .transform((data) => ({ ...data, permalink: `/blog/${data.slug}` })),
+        .transform((data) => ({ ...data, permalink: `/posts/${data.slug}` })),
     },
+  },
+  mdx: {
+    gfm: true,
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      [rehypePrettyCode, rehypePrettyCodeOptions],
+      [rehypeSlug],
+      [rehypeAutolinkHeadings, rehypeAutolinkHeadingsOptions],
+    ],
   },
 });

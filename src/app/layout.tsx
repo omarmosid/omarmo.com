@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import "./styles/globals.css";
+import { open_sans, tinos } from "./fonts";
+import { Navbar } from "./components/navbar";
 
 export const metadata: Metadata = {
   title: "Omar Mohammad's Website",
@@ -16,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${tinos.className} smooth-scroll`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

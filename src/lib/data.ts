@@ -1,10 +1,10 @@
-import { posts } from "../../.velite";
+import { posts, Post } from "../../.velite";
 
-export const getPost = (slug: string) => {
-  console.log("posts", posts);
-  return posts.find((post) => post.slug === slug);
+export const getPost = (slug: string): Post | undefined => {
+  const post = posts.find((post) => post.slug === slug);
+  return post;
 };
 
-export const getAllPosts = () => {
+export const getAllPosts = (): Post[] => {
   return posts;
 };

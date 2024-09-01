@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: var(--font-open-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-tinos);
+}
+
+/* Rehype pretty code */
+
+pre {
+  overflow-x: scroll;
+  padding: 1rem 0;
+}
+
+pre [data-line] {
+  padding: 0 1rem;
+}
+
+code[data-line-numbers] {
+  counter-reset: line;
+}
+
+code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+
+  /* Other styling */
+  display: inline-block;
+  width: 0.75rem;
+  margin-right: 2rem;
+  text-align: right;
+  color: gray;
+}
+
+code[data-line-numbers-max-digits="2"] > [data-line]::before {
+  width: 1.25rem;
+}
+
+code[data-line-numbers-max-digits="3"] > [data-line]::before {
+  width: 1.75rem;
+}
+
+code[data-line-numbers-max-digits="4"] > [data-line]::before {
+  width: 2.25rem;
+}
+
+/* Auto link header styles */
+
+a[aria-hidden="true"] {
+  margin-left: 8px;
+  text-decoration: none;
+  visibility: hidden;
+}
+
+h1:hover a[aria-hidden="true"],
+h2:hover a[aria-hidden="true"],
+h3:hover a[aria-hidden="true"],
+h4:hover a[aria-hidden="true"],
+h5:hover a[aria-hidden="true"],
+h6:hover a[aria-hidden="true"] {
+  visibility: visible;
+}

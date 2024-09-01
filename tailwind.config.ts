@@ -13,8 +13,14 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        sans: ["var(--font-open_sans)"],
+        serif: ["var(--font-tinos)"],
+        heading: ["var(--font-tinos)", "serif"],
+        body: ["var(--font-open-sans)", "sans-serif"],
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
 export default config;

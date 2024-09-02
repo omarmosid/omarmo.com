@@ -9,7 +9,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
     <>
       <section className="h-[50vh] w-full flex justify-center items-center">
         <Container>
-          <h1 className="mb-0 text-6xl font-bold">Hi! I'm Omar!</h1>
+          <h1 className="mb-0 text-6xl font-bold">Hi! I am Omar!</h1>
 
           <div className="m-0">
             <p>

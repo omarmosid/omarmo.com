@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -17,7 +18,7 @@ const config: Config = {
         sans: ["var(--font-open_sans)"],
         serif: ["var(--font-tinos)"],
         heading: ["var(--font-tinos)", "serif"],
-        body: ["var(--font-open-sans)", "sans-serif"],
+        body: ["var(--font-open_sans)", "sans-serif"],
       },
     },
   },

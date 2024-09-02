@@ -1,7 +1,14 @@
+import { BlogList } from "../components/blog/BlogList";
+import { HomeHero } from "../components/header/HomeHero";
+import { RegularLayout } from "../components/layouts/regular-layout";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Home</h1>
-    </main>
+    <>
+      <HomeHero />
+      <RegularLayout>
+        <BlogList />
+      </RegularLayout>
+    </>
   );
 }

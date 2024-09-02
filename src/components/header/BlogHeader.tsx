@@ -10,10 +10,10 @@ type BlogHeaderProps = { post: Post };
 const BlogHeader: React.FC<BlogHeaderProps> = ({ post }) => {
   const { permalink, title, date, metadata, cover } = post;
   return (
-    <header className="prose prose-zinc w-full relative flex justify-center flex-wrap max-w-none">
+    <section className="w-full relative flex justify-center flex-wrap max-w-none">
       <div className="container max-w-3xl">
         {/* Title */}
-        <div className="pt-10 bg-white">
+        <div className="pt-10">
           <h1 className="text-5xl font-bold mb-6">{title}</h1>
         </div>
 
@@ -36,7 +36,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({ post }) => {
           fill
         />
       </div>
-    </header>
+    </section>
   );
 };
 

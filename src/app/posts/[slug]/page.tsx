@@ -1,8 +1,7 @@
-import { MDXContent } from "@/app/components/mdx-content";
+import { MDXContent } from "@/components/mdx-content";
 import { getAllPosts, getPost } from "@/lib/data";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import { BlogHeader } from "../header";
+import { BlogHeader } from "../../../components/header/BlogHeader";
 
 type PostProps = {
   params: {
@@ -27,7 +26,7 @@ const PostPage = ({ params }: PostProps) => {
     <>
       <article>
         <BlogHeader post={post} />
-        <div className="prose max-w-prose mx-auto lg:text-lg font-serif px-2 py-8">
+        <div className="max-w-prose mx-auto lg:text-lg font-serif px-2 py-8">
           <MDXContent code={post.code} />
         </div>
       </article>

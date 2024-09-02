@@ -1,7 +1,13 @@
+import { ContentLayout } from "@/components/layouts/content-layout";
 import React from "react";
 
 const ProjectsPage = () => {
-  return <div>List of projects goes here</div>;
+  return (
+    <>
+      {" "}
+      <ContentLayout title="Projects">Projects</ContentLayout>
+    </>
+  );
 };
 
 export default ProjectsPage;

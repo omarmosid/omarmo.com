@@ -7,7 +7,7 @@ type PostContentProps = {
 const PostContent: React.FC<PostContentProps> = ({ children }) => {
   return (
     <>
-      <article className="container prose max-w-3xl">{children}</article>
+      <article className="container max-w-3xl">{children}</article>
     </>
   );
 };

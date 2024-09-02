@@ -35,6 +35,7 @@ export default defineConfig({
           title: s.string().max(99), // Zod primitive type
           slug: s.slug("posts"), // validate format, unique in posts collection
           // slug: s.path(), // auto generate slug from file path
+          draft: s.boolean(),
           date: s.isodate(), // input Date-like string, output ISO Date string.
           cover: s.image().optional(), // input image relative path, output image object with blurImage.
           video: s.file().optional(), // input file relative path, output file public path.

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./styles/globals.css";
 import { open_sans, tinos } from "./fonts";
-import { Navbar } from "./components/navbar";
+import { Navbar } from "../components/Navbar";
+import { ThemeProvider } from "next-themes";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Omar Mohammad's Website",
@@ -14,10 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${tinos.className} smooth-scroll`}>
-        <Navbar />
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${tinos.className} smooth-scroll prose prose-zinc dark:prose-invert prose-p:text-zinc-600 dark:prose-p:text-zinc-400 prose-headings:text-zinc-700 dark:prose-headings:text-zinc-300 max-w-none`}
+      >
+        <Providers>
+          <Navbar />
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   );

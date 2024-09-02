@@ -7,6 +7,9 @@ export default function Home() {
     <>
       <HomeHero />
       <RegularLayout>
+        <div>
+          <h2 className="text-4xl">Latest posts</h2>
+        </div>
         <BlogList />
       </RegularLayout>
     </>

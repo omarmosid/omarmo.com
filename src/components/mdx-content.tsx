@@ -3,11 +3,13 @@ import Image from "next/image";
 
 import { Counter } from "./counter";
 import { Callout } from "./Callout";
+import { Link } from "./link";
 
 const sharedComponents = {
   Counter,
   Callout,
   Image,
+  Link,
 };
 
 const useMDXComponent = (code: string) => {

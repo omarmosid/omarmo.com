@@ -2,9 +2,11 @@ import * as runtime from "react/jsx-runtime";
 import Image from "next/image";
 
 import { Counter } from "./counter";
+import { Callout } from "./Callout";
 
 const sharedComponents = {
   Counter,
+  Callout,
   Image,
 };
 

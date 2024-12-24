@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import { notionLoader } from "notion-astro-loader";
 
 function removeDupsAndLowerCase(array: string[]) {
 	return [...new Set(array.map((str) => str.toLowerCase()))];
@@ -45,4 +46,16 @@ const note = defineCollection({
 	}),
 });
 
-export const collections = { post, note };
+const database = defineCollection({
+	loader: notionLoader({
+		auth: import.meta.env.NOTION_TOKEN,
+		database_id: import.meta.env.NOTION_DATABASE_ID,
+		// Use Notion sorting and filtering
+		filter: {
+			property: "Hidden",
+			checkbox: { equals: false },
+		},
+	}),
+});
+
+export const collections = { post, note, database };

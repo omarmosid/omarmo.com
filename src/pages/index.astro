@@ -8,25 +8,27 @@ import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
 
 // Posts
-const MAX_POSTS = 10;
+const MAX_POSTS = 5;
 const allPosts = await getAllPosts();
 const allPostsByDate = allPosts
 	.sort(collectionDateSort)
 	.slice(0, MAX_POSTS) as CollectionEntry<"post">[];
 
 // Notes
-const MAX_NOTES = 5;
+const MAX_NOTES = 3;
 const allNotes = await getCollection("note");
 const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
+
+// Notion // TODO: Make this actually work
+// const allEntriesFromDatabase = await getCollection("database");
 ---
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<h1 class="title mb-6">Hello World!</h1>
+		<h1 class="title mb-6">Hi! I'm Omar.</h1>
 		<p class="mb-4">
-			Hi, I’m a theme for Astro, a simple starter that you can use to create your website or blog.
-			If you want to know more about how you can customise me, add more posts, and make it your own,
-			click on the GitHub icon link below and it will take you to my repo.
+			I am a self-taught Full-Stack Engineer passionate about building products that delight users.
+			I also thoroughly enjoy reading historical fictions and playing role-playing games.
 		</p>
 		<SocialList />
 	</section>

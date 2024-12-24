@@ -1,0 +1,21 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "I'm a starter theme for Astro.build",
+	title: "About",
+};
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-6">Now</h1>
+	<div class="prose prose-sm prose-cactus max-w-none">
+		<p>This page describes what I've been upto:</p>
+		<ul class="list-inside list-disc" role="list">
+			<li>📖 Reading The 48 laws of power by Robert Greene</li>
+			<li>🎮 Playing Cyberpunk</li>
+			<li>🙇🏻 Learning Arabic</li>
+		</ul>
+		<p>Last updated: {new Date("2024-12-24").toDateString()}</p>
+	</div>
+</PageLayout>

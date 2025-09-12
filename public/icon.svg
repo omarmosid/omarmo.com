@@ -1,1 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 500 500"><path fill="#B04304" d="M295.334 103.333v-40L340.667 90v40l-45.333-26.667ZM250.001 63.333l-45.334-26.666v426.666L250.001 490V63.333Z"/><path fill="#FF5D01" d="m250.001 129.944 45.333-26.667 45.333 26.667-45.333 26.667-45.333-26.667ZM204.667 36.667 250.001 10l45.333 26.667-45.333 26.666-45.334-26.666ZM295.334 63.277l45.333-26.666L386 63.277l-45.333 26.667-45.333-26.667ZM114 223.277l45.333-26.667 45.334 26.667-45.334 26.667L114 223.277ZM250 249.944l-45.333-26.667v53.333L250 249.944Z"/><path fill="#53C68C" d="m250 63.333 45.333-26.666v120L340.667 130V90L386 63.333V170l-90.667 53.333v240L250 490V316.667L159.333 370V250l45.334-26.667v53.334L250 250V63.333Z"/><path fill="#B04304" d="M159.333 250 114 223.334v120L159.333 370V250Z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 500 500">
+  <!-- Main star body -->
+  <path d="M250 30 L320 180 L470 180 L360 280 L390 430 L250 350 L110 430 L140 280 L30 180 L180 180 Z" fill="none" stroke="#FF5D01" stroke-width="12" stroke-linejoin="round"/>
+  
+  <!-- Main shooting trail -->
+  <path d="M250 350 Q180 420 140 480 Q100 500 120 520" stroke="#FF5D01" stroke-width="25" fill="none" stroke-linecap="round"/>
+  
+  <!-- Secondary trail elements -->
+  <path d="M220 380 Q170 450 140 500" stroke="#B04304" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <path d="M280 380 Q210 460 170 520" stroke="#53C68C" stroke-width="12" fill="none" stroke-linecap="round"/>
+  
+  <!-- Sparkle elements -->
+  <circle cx="160" cy="430" r="8" fill="#FF5D01"/>
+  <circle cx="190" cy="480" r="6" fill="#53C68C"/>
+  <circle cx="120" cy="500" r="6" fill="#B04304"/>
+  <circle cx="170" cy="520" r="8" fill="#FF5D01"/>
+  
+  <!-- Small trailing stars -->
+  <path d="M150 460 L160 480 L180 480 L166 495 L170 515 L150 505 L130 515 L134 495 L120 480 L140 480 Z" fill="#B04304"/>
+  <path d="M180 510 L186 522 L198 522 L188 530 L192 542 L180 536 L168 542 L172 530 L162 522 L174 522 Z" fill="#53C68C"/>
+</svg>

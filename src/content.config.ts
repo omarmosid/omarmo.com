@@ -46,6 +46,35 @@ const note = defineCollection({
 	}),
 });
 
+const project = defineCollection({
+	loader: glob({ base: "./src/content/project", pattern: "**/*.{md,mdx}" }),
+	schema: ({ image }) =>
+		baseSchema.extend({
+			description: z.string(),
+			coverImage: z
+				.object({
+					alt: z.string(),
+					src: image(),
+				})
+				.optional(),
+			draft: z.boolean().default(false),
+			tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+			technologies: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+			githubUrl: z.string().url().optional(),
+			liveUrl: z.string().url().optional(),
+			startDate: z
+				.string()
+				.or(z.date())
+				.transform((val) => new Date(val)),
+			endDate: z
+				.string()
+				.or(z.date())
+				.optional()
+				.transform((val) => (val ? new Date(val) : undefined)),
+			featured: z.boolean().default(false),
+		}),
+});
+
 // const database = defineCollection({
 // 	loader: notionLoader({
 // 		auth: import.meta.env.NOTION_TOKEN,
@@ -61,5 +90,6 @@ const note = defineCollection({
 export const collections = { 
 	post, 
 	note, 
+	project,
 	// database 
 };

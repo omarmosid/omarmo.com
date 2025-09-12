@@ -1,0 +1,72 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "@/components/FormattedDate.astro";
+import type { HTMLTag, Polymorphic } from "astro/types";
+import { Icon } from "astro-icon/components";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
+	project: CollectionEntry<"project">;
+	withDesc?: boolean;
+};
+
+const { as: Tag = "div", project, withDesc = false } = Astro.props;
+---
+
+<div class="flex flex-col gap-2">
+	<div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+		<FormattedDate date={project.data.startDate} />
+		{project.data.endDate && (
+			<>
+				<span>→</span>
+				<FormattedDate date={project.data.endDate} />
+			</>
+		)}
+		{project.data.featured && (
+			<span class="rounded bg-accent px-2 py-1 text-xs text-white">Featured</span>
+		)}
+	</div>
+	
+	<Tag class="flex items-center gap-2">
+		{project.data.draft && <span class="text-red-500">(Draft) </span>}
+		<a class="cactus-link font-semibold" data-astro-prefetch href={`/projects/${project.id}/`}>
+			{project.data.title}
+		</a>
+		<div class="flex gap-2">
+			{project.data.githubUrl && (
+				<a 
+					href={project.data.githubUrl} 
+					target="_blank" 
+					rel="noopener noreferrer"
+					class="text-gray-600 hover:text-accent dark:text-gray-400"
+					title="View on GitHub"
+				>
+					<Icon name="mdi:github" class="h-4 w-4" />
+				</a>
+			)}
+			{project.data.liveUrl && (
+				<a 
+					href={project.data.liveUrl} 
+					target="_blank" 
+					rel="noopener noreferrer"
+					class="text-gray-600 hover:text-accent dark:text-gray-400"
+					title="View live project"
+				>
+					<Icon name="mdi:external-link" class="h-4 w-4" />
+				</a>
+			)}
+		</div>
+	</Tag>
+	
+	{withDesc && <p class="line-clamp-3 text-gray-700 dark:text-gray-300">{project.data.description}</p>}
+	
+	<div class="flex flex-wrap gap-1">
+		{project.data.technologies.slice(0, 3).map((tech) => (
+			<span class="rounded bg-gray-200 px-2 py-1 text-xs text-gray-700 dark:bg-gray-700 dark:text-gray-300">
+				{tech}
+			</span>
+		))}
+		{project.data.technologies.length > 3 && (
+			<span class="text-xs text-gray-500">+{project.data.technologies.length - 3} more</span>
+		)}
+	</div>
+</div>

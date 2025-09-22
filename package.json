@@ -11,7 +11,8 @@
 		"format": "pnpm run format:code && pnpm run format:imports",
 		"format:code": "biome format . --write && prettier -w \"**/*\" \"!**/*.{md,mdx}\" --ignore-unknown --cache",
 		"format:imports": "biome check --formatter-enabled=false --write",
-		"check": "astro check"
+		"check": "astro check",
+		"new-post": "bun scripts/new-post.ts"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^4.3.3",
@@ -25,6 +26,7 @@
 		"astro-webmanifest": "^1.0.0",
 		"cssnano": "^7.0.6",
 		"hastscript": "^9.0.0",
+		"inquirer": "^12.9.6",
 		"mdast-util-directive": "^3.0.0",
 		"mdast-util-to-markdown": "^2.1.2",
 		"mdast-util-to-string": "^4.0.0",

@@ -2,11 +2,11 @@
 	"name": "",
 	"version": "5.0.0",
 	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
+		"dev": "wrangler types && astro dev",
+		"start": "wrangler types && astro dev",
+		"build": "wrangler types && astro build",
 		"postbuild": "pagefind --site dist",
-		"preview": "astro preview",
+		"preview": "wrangler types && astro preview",
 		"lint": "biome lint .",
 		"format": "pnpm run format:code && pnpm run format:imports",
 		"format:code": "biome format . --write && prettier -w \"**/*\" \"!**/*.{md,mdx}\" --ignore-unknown --cache",
@@ -15,6 +15,7 @@
 		"new-post": "bun scripts/new-post.ts"
 	},
 	"dependencies": {
+		"@astrojs/cloudflare": "^12.6.12",
 		"@astrojs/mdx": "^4.3.3",
 		"@astrojs/rss": "^4.0.12",
 		"@astrojs/sitemap": "^3.4.2",
@@ -56,6 +57,7 @@
 		"prettier-plugin-tailwindcss": "^0.6.9",
 		"reading-time": "^1.5.0",
 		"tailwindcss": "^3.4.16",
-		"typescript": "^5.7.2"
+		"typescript": "^5.7.2",
+		"wrangler": "^4.52.1"
 	}
 }

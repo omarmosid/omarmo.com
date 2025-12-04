@@ -19,6 +19,8 @@ import { remarkReadingTime } from "./src/plugins/remark-reading-time";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
 	image: {
@@ -75,6 +77,7 @@ export default defineConfig({
 			},
 		}),
 	],
+	adapter: cloudflare(),
 	markdown: {
 		rehypePlugins: [
 			[
@@ -102,6 +105,9 @@ export default defineConfig({
 			exclude: ["@resvg/resvg-js"],
 		},
 		plugins: [rawFonts([".ttf", ".woff"])],
+		build: {
+			minify: false,
+		},
 	},
 	env: {
 		schema: {

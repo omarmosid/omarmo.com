@@ -1,0 +1,31 @@
+---
+import { getAllPosts } from "@/data/post";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import BaseLayout from "@/layouts/SocialBase.astro";
+
+// if you're using an adaptor in SSR mode, getStaticPaths wont work -> https://docs.astro.build/en/guides/routing/#modifying-the-slug-example-for-ssr
+export const getStaticPaths = (async () => {
+	const blogEntries = await getAllPosts();
+	return blogEntries.map((post) => ({
+		params: { slug: post.id },
+		props: { post },
+	}));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { post } = Astro.props;
+const { title, description } = post.data;
+---
+
+<BaseLayout meta={{ title, description }}>
+	<div class="bg-cardBg flex h-[630px] w-[1200px] flex-col items-center justify-center p-6">
+		<div
+			class="border-borderColor flex h-full w-full flex-col justify-center gap-6 rounded-2xl border p-6 px-16 shadow-lg"
+		>
+			<p class="text-xs uppercase tracking-[0.25em] text-accent/80">Blog post</p>
+			<h1 class="max-w-3xl text-6xl font-bold leading-normal">{title}</h1>
+			{description && <p class="text-textMuted max-w-2xl text-xl">{description}</p>}
+		</div>
+	</div>
+</BaseLayout>

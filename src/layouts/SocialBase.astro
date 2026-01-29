@@ -1,0 +1,30 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import SkipLink from "@/components/SkipLink.astro";
+import ThemeProvider from "@/components/ThemeProvider.astro";
+import { siteConfig } from "@/site.config";
+import type { SiteMeta } from "@/types";
+
+interface Props {
+	meta: SiteMeta;
+}
+
+const {
+	meta: { articleDate, description = siteConfig.description, ogImage, title },
+} = Astro.props;
+---
+
+<html class="scroll-smooth" lang={siteConfig.lang}>
+	<head>
+		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
+	</head>
+	<body
+		class="flex min-h-screen max-w-3xl flex-col bg-bgColor font-mono text-sm font-normal text-textColor antialiased"
+	>
+		<ThemeProvider />
+		<SkipLink />
+		<main id="main">
+			<slot />
+		</main>
+	</body>
+</html>

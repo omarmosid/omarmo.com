@@ -13,7 +13,8 @@
 		"format:code": "biome format . --write && prettier -w \"**/*\" \"!**/*.{md,mdx}\" --ignore-unknown --cache",
 		"format:imports": "biome check --formatter-enabled=false --write",
 		"check": "astro check",
-		"new-post": "bun scripts/new-post.ts"
+		"new-post": "bun scripts/new-post.ts",
+		"generate-social-cards": "bun src/scripts/generate-social-cards.ts"
 	},
 	"dependencies": {
 		"@astrojs/cloudflare": "^12.6.12",
@@ -50,6 +51,8 @@
 		"@types/mdast": "^4.0.4",
 		"autoprefixer": "^10.4.20",
 		"pagefind": "^1.2.0",
+		"playwright": "^1.57.0",
+		"puppeteer": "^23.5.0",
 		"prettier": "^3.4.2",
 		"prettier-plugin-astro": "0.14.1",
 		"prettier-plugin-tailwindcss": "^0.6.9",

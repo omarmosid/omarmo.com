@@ -75,6 +75,35 @@ const project = defineCollection({
 		}),
 });
 
+const recipe = defineCollection({
+	loader: glob({ base: "./src/content/recipe", pattern: "**/*.{md,mdx}" }),
+	schema: ({ image }) =>
+		baseSchema.extend({
+			description: z.string(),
+			coverImage: z
+				.object({
+					alt: z.string(),
+					src: image(),
+				})
+				.optional(),
+			draft: z.boolean().default(false),
+			tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+			publishDate: z
+				.string()
+				.or(z.date())
+				.transform((val) => new Date(val)),
+			updatedDate: z
+				.string()
+				.optional()
+				.transform((str) => (str ? new Date(str) : undefined)),
+			prepTime: z.string().optional(),
+			cookTime: z.string().optional(),
+			servings: z.number().optional(),
+			ingredients: z.array(z.string()).default([]),
+			cuisine: z.string().optional(),
+		}),
+});
+
 // const database = defineCollection({
 // 	loader: notionLoader({
 // 		auth: import.meta.env.NOTION_TOKEN,
@@ -87,9 +116,10 @@ const project = defineCollection({
 // 	}),
 // });
 
-export const collections = { 
-	post, 
-	note, 
+export const collections = {
+	post,
+	note,
 	project,
-	// database 
+	recipe,
+	// database
 };

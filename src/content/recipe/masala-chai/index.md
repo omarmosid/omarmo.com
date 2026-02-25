@@ -32,7 +32,8 @@ ingredients:
 
 ## Tips
 
-1. Use a non-stick saucepot to avoid scrubbing. Stainless steel pots can be harder to clean.
-2. Make sure the milk is properly boiled and the raw taste is gone. You'll know it's ready when you see bubbles and the milk begins to rise in the pot rapidly — be careful and reduce the heat at this point.
-3. Use [this tea](https://www.amazon.co.uk/dp/B083JKSTRT?ref=nb_sb_ss_w_as-reorder_k0_1_7&amp=&crid=33T2YRIZ0DDRG&amp=&sprefix=tea+tat).
-4. Use a tea infuser to hold the tea leaves — it makes cleanup much easier since you can just lift it out instead of straining.
+1. For a more earthy/unique taste, use less sugar and add a bit of honey or jaggery instead.
+2. Use a non-stick saucepot to avoid scrubbing. Stainless steel pots can be harder to clean.
+3. Make sure the milk is properly boiled and the raw taste is gone. You'll know it's ready when you see bubbles and the milk begins to rise in the pot rapidly — be careful and reduce the heat at this point.
+4. Use [this tea](https://www.amazon.co.uk/dp/B083JKSTRT?ref=nb_sb_ss_w_as-reorder_k0_1_7&amp=&crid=33T2YRIZ0DDRG&amp=&sprefix=tea+tat).
+5. Use a tea infuser to hold the tea leaves — it makes cleanup much easier since you can just lift it out instead of straining.

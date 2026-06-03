@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+import TagList from './TagList.astro';
+
+interface Props {
+	post: CollectionEntry<'post'>;
+}
+
+const { post } = Astro.props;
+const slug = post.id.replace(/\/index$/, '');
+---
+
+<article class="group rounded-2xl border border-border bg-surface-raised p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-accent hover:shadow-md">
+	<a class="block no-underline" href={`/posts/${slug}/`}>
+		<div class="mb-3 flex items-center gap-2 text-sm text-muted">
+			<FormattedDate date={post.data.publishDate} />
+			{post.data.draft && <span class="rounded-full bg-surface-subtle px-2 py-0.5 text-xs">Draft</span>}
+		</div>
+		<h2 class="text-xl font-bold tracking-tight text-content group-hover:text-accent">{post.data.title}</h2>
+		<p class="mt-2 text-muted">{post.data.description}</p>
+	</a>
+	{
+		post.data.tags.length > 0 && (
+			<div class="mt-4">
+				<TagList tags={post.data.tags} />
+			</div>
+		)
+	}
+</article>

@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import NotePreview from '../../components/NotePreview.astro';
+import Base from '../../layouts/Base.astro';
+
+const notes = (await getCollection('note')).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<Base title="Notes" description="Short notes by Omar Mo">
+	<header class="mb-10">
+		<h1 class="text-4xl font-bold tracking-tight text-content sm:text-5xl">Notes</h1>
+		<p class="mt-4 text-lg text-muted">Shorter pieces and useful references.</p>
+	</header>
+	<div class="grid gap-5">
+		{notes.map((note) => <NotePreview note={note} />)}
+	</div>
+</Base>

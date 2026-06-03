@@ -1,21 +1,16 @@
 ---
-import PageLayout from "@/layouts/Base.astro";
-
-const meta = {
-	description: "I'm a starter theme for Astro.build",
-	title: "About",
-};
+import Base from '../layouts/Base.astro';
 ---
 
-<PageLayout meta={meta}>
-	<h1 class="title mb-6">Now</h1>
-	<div class="prose prose-sm prose-cactus max-w-none">
-		<p>This page describes what I've been upto:</p>
-		<ul class="list-inside list-disc" role="list">
-			<li>📖 Reading Algorithms to live by</li>
-			<li>🎮 Playing Far Cry 6</li>
-			<li>🙇🏻 Learning to Drive in the UK</li>
+<Base title="Now" description="What Omar Mo is focused on now">
+	<h1 class="text-4xl font-bold tracking-tight text-content sm:text-5xl">Now</h1>
+	<div class="prose-site mt-8">
+		<p>This page describes what I've been up to:</p>
+		<ul>
+			<li>Reading <em>Algorithms to Live By</em></li>
+			<li>Playing Far Cry 6</li>
+			<li>Learning to drive in the UK</li>
 		</ul>
-		<p>Last updated: {new Date("2025-08-13").toDateString()}</p>
+		<p>Last updated: {new Date('2025-08-13').toDateString()}</p>
 	</div>
-</PageLayout>
+</Base>

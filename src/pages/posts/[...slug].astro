@@ -1,24 +1,23 @@
 ---
-import { render } from "astro:content";
-import { getAllPosts } from "@/data/post";
-import PostLayout from "@/layouts/BlogPost.astro";
-import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
 
-// if you're using an adaptor in SSR mode, getStaticPaths wont work -> https://docs.astro.build/en/guides/routing/#modifying-the-slug-example-for-ssr
-export const getStaticPaths = (async () => {
-	const blogEntries = await getAllPosts();
-	return blogEntries.map((post) => ({
-		params: { slug: post.id },
+export async function getStaticPaths() {
+	const posts = await getCollection('post', ({ data }) => import.meta.env.DEV || !data.draft);
+	return posts.map((post) => ({
+		params: { slug: post.id.replace(/\/index$/, '') },
 		props: { post },
 	}));
-}) satisfies GetStaticPaths;
+}
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+interface Props {
+	post: CollectionEntry<'post'>;
+}
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, remarkPluginFrontmatter } = await render(post);
 ---
 
-<PostLayout post={post}>
+<BlogPost post={post} readingTime={remarkPluginFrontmatter.minutesRead}>
 	<Content />
-</PostLayout>
+</BlogPost>

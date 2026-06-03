@@ -1,26 +1,26 @@
 ---
 export interface Props {
-	author: string;
+	author?: string;
 	source?: string;
 }
 
 const { author, source } = Astro.props;
 ---
 
-<blockquote class="my-6 border-s-2 border-quote ps-4 text-quote">
+<blockquote class="my-8 rounded-2xl border-l-4 border-accent bg-accent-subtle px-5 py-4 text-content">
 	<div class="leading-relaxed">
 		<slot />
 	</div>
-	<footer class="mt-4 text-sm font-medium opacity-75">
-		— {source ? (
+	{author && <footer class="mt-4 text-sm font-medium not-italic text-muted">
+		- {source ? (
 			<a 
 				href={source}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="cactus-link"
+				class="text-accent"
 			>
 				{author}
 			</a>
 		) : author}
-	</footer>
+	</footer>}
 </blockquote>

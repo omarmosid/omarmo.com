@@ -1,0 +1,130 @@
+---
+import List from 'phosphor-astro/List.astro';
+import X from 'phosphor-astro/X.astro';
+import { MENU_LINKS, SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header class="border-b border-border bg-surface/80 backdrop-blur">
+	<site-nav class="container-page block py-6">
+		<nav class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between" aria-label="Main navigation">
+			<div class="flex items-center justify-between gap-4">
+				<a class="group flex items-center gap-3 no-underline" href="/" aria-label={SITE_TITLE}>
+					<svg
+						aria-hidden="true"
+						class="h-10 w-7 text-accent transition-transform group-hover:-rotate-6"
+						fill="none"
+						focusable="false"
+						viewBox="0 0 272 480"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path d="M136 10 L176 100 L266 100 L206 150 L226 240 L136 190 L46 240 L66 150 L6 100 L96 100 Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="18" />
+						<path d="M136 190 Q100 230 80 270 Q60 310 50 350 Q45 390 55 430 Q70 470 100 500 Q130 520 160 510" stroke="currentColor" stroke-linecap="round" stroke-width="22" />
+						<circle cx="90" cy="250" r="12" fill="currentColor" />
+						<circle cx="110" cy="310" r="9" fill="currentColor" />
+						<circle cx="95" cy="390" r="11" fill="currentColor" />
+					</svg>
+					<span class="text-lg font-bold tracking-tight text-content">{SITE_TITLE}</span>
+				</a>
+
+				<div class="flex items-center gap-2 sm:hidden">
+					<ThemeToggle />
+					<button
+						class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted hover:border-accent hover:text-accent"
+						type="button"
+						aria-controls="primary-nav"
+						aria-expanded="false"
+						aria-label="Open menu"
+						data-menu-toggle
+					>
+						<List class="h-5 w-5" aria-hidden="true" data-menu-icon />
+						<X class="hidden h-5 w-5" aria-hidden="true" data-menu-close-icon />
+					</button>
+				</div>
+			</div>
+
+			<div
+				class="hidden flex-col gap-2 pt-2 text-sm font-medium text-muted sm:flex sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-2 sm:pt-0"
+				id="primary-nav"
+				data-menu-panel
+			>
+				{
+					MENU_LINKS.map((link) => (
+						<HeaderLink
+							class="rounded-md py-1.5 no-underline hover:text-accent sm:py-1 [&.active]:text-content [&.active]:underline"
+							href={link.href}
+						>
+							{link.label}
+						</HeaderLink>
+					))
+				}
+				<div class="hidden sm:block">
+					<ThemeToggle />
+				</div>
+			</div>
+		</nav>
+	</site-nav>
+
+	<script>
+		class SiteNav extends HTMLElement {
+			#button: HTMLButtonElement | null = null;
+			#panel: HTMLElement | null = null;
+			#menuIcon: HTMLElement | null = null;
+			#closeIcon: HTMLElement | null = null;
+			#desktopQuery = window.matchMedia('(min-width: 640px)');
+
+			connectedCallback() {
+				this.#button = this.querySelector('[data-menu-toggle]');
+				this.#panel = this.querySelector('[data-menu-panel]');
+				this.#menuIcon = this.querySelector('[data-menu-icon]');
+				this.#closeIcon = this.querySelector('[data-menu-close-icon]');
+
+				this.#button?.addEventListener('click', this.#toggleMenu);
+				this.#panel?.addEventListener('click', this.#closeOnLinkClick);
+				window.addEventListener('keydown', this.#closeOnEscape);
+				this.#desktopQuery.addEventListener('change', this.#closeOnDesktop);
+			}
+
+			disconnectedCallback() {
+				this.#button?.removeEventListener('click', this.#toggleMenu);
+				this.#panel?.removeEventListener('click', this.#closeOnLinkClick);
+				window.removeEventListener('keydown', this.#closeOnEscape);
+				this.#desktopQuery.removeEventListener('change', this.#closeOnDesktop);
+			}
+
+			#getOpen() {
+				return this.#button?.getAttribute('aria-expanded') === 'true';
+			}
+
+			#setOpen(open: boolean) {
+				this.#panel?.classList.toggle('hidden', !open);
+				this.#panel?.classList.toggle('flex', open);
+				this.#menuIcon?.classList.toggle('hidden', open);
+				this.#closeIcon?.classList.toggle('hidden', !open);
+				this.#button?.setAttribute('aria-expanded', open.toString());
+				this.#button?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+			}
+
+			#toggleMenu = () => {
+				this.#setOpen(!this.#getOpen());
+			};
+
+			#closeOnLinkClick = (event: Event) => {
+				if (event.target instanceof Element && event.target.closest('a')) this.#setOpen(false);
+			};
+
+			#closeOnEscape = (event: KeyboardEvent) => {
+				if (event.key === 'Escape') this.#setOpen(false);
+			};
+
+			#closeOnDesktop = () => {
+				if (this.#desktopQuery.matches) this.#setOpen(false);
+			};
+		}
+
+		if (!customElements.get('site-nav')) {
+			customElements.define('site-nav', SiteNav);
+		}
+	</script>
+</header>

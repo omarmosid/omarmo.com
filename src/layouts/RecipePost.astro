@@ -1,76 +1,32 @@
 ---
-import { type CollectionEntry, render } from "astro:content";
-
-import RecipeMasthead from "@/components/recipe/RecipeMasthead.astro";
-import TOC from "@/components/blog/TOC.astro";
-
-import BaseLayout from "./Base.astro";
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import Chip from '../components/Chip.astro';
+import ContentHeader from '../components/ContentHeader.astro';
+import Base from './Base.astro';
 
 interface Props {
-	recipe: CollectionEntry<"recipe">;
+	recipe: CollectionEntry<'recipe'>;
+	readingTime?: string;
 }
 
-const { recipe } = Astro.props;
-const { title, description, updatedDate, publishDate, coverImage } = recipe.data;
-const articleDate = updatedDate?.toISOString() ?? publishDate.toISOString();
-const socialImage = coverImage?.src.src;
-const { headings } = await render(recipe);
+const { recipe, readingTime } = Astro.props;
+const { cookTime, coverImage, description, ingredients, prepTime, publishDate, servings, title } = recipe.data;
 ---
 
-<BaseLayout
-	meta={{
-		articleDate,
-		description,
-		ogImage: socialImage,
-		title,
-	}}
->
-	<div class="gap-x-10 lg:flex lg:items-start">
-		{!!headings.length && <TOC headings={headings} />}
-		<article class="flex-grow break-words" data-pagefind-body>
-			<div id="blog-hero"><RecipeMasthead content={recipe} /></div>
-			<div
-				class="prose prose-sm prose-cactus mt-12 prose-headings:font-semibold prose-headings:text-accent-2 prose-headings:before:absolute prose-headings:before:-ms-4 prose-headings:before:text-accent sm:prose-headings:before:content-['#'] sm:prose-th:before:content-none"
-			>
-				<slot />
+<Base title={title} description={description} image={coverImage?.src}>
+	<article>
+		<ContentHeader kicker="Recipe" title={title} description={description} date={publishDate} readingTime={readingTime}>
+			<div slot="meta" class="flex flex-wrap gap-2">
+				{prepTime && <Chip>Prep {prepTime}</Chip>}
+				{cookTime && <Chip>Cook {cookTime}</Chip>}
+				{servings && <Chip>Serves {servings}</Chip>}
 			</div>
-		</article>
-	</div>
-	<button
-		aria-label="Back to Top"
-		class="z-90 fixed bottom-8 end-4 flex h-10 w-10 translate-y-28 items-center justify-center rounded-full border-2 border-transparent bg-zinc-200 text-3xl opacity-0 transition-all duration-300 hover:border-link data-[show=true]:translate-y-0 data-[show=true]:opacity-100 dark:bg-zinc-700 sm:end-8 sm:h-12 sm:w-12"
-		data-show="false"
-		id="to-top-btn"
-		><svg
-			aria-hidden="true"
-			class="h-6 w-6"
-			fill="none"
-			focusable="false"
-			stroke="currentColor"
-			stroke-width="2"
-			viewBox="0 0 24 24"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<path d="M4.5 15.75l7.5-7.5 7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path>
-		</svg>
-	</button>
-</BaseLayout>
-
-<script>
-	const scrollBtn = document.getElementById("to-top-btn") as HTMLButtonElement;
-	const targetHeader = document.getElementById("blog-hero") as HTMLDivElement;
-
-	function callback(entries: IntersectionObserverEntry[]) {
-		entries.forEach((entry) => {
-			// only show the scroll to top button when the heading is out of view
-			scrollBtn.dataset.show = (!entry.isIntersecting).toString();
-		});
-	}
-
-	scrollBtn.addEventListener("click", () => {
-		document.documentElement.scrollTo({ behavior: "smooth", top: 0 });
-	});
-
-	const observer = new IntersectionObserver(callback);
-	observer.observe(targetHeader);
-</script>
+		</ContentHeader>
+		{coverImage && <Image class="mb-10 rounded-2xl" src={coverImage.src} alt={coverImage.alt} width={1200} height={630} />}
+		{ingredients.length > 0 && <section class="mb-10 rounded-2xl border border-border bg-surface-raised p-5"><h2 class="mb-3 text-xl font-bold">Ingredients</h2><ul class="list-disc space-y-1 pl-5 text-content">{ingredients.map((ingredient) => <li>{ingredient}</li>)}</ul></section>}
+		<div class="prose-site">
+			<slot />
+		</div>
+	</article>
+</Base>

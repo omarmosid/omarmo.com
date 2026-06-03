@@ -1,63 +1,62 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import SocialList from "@/components/SocialList.astro";
-import PostPreview from "@/components/blog/PostPreview.astro";
-import Note from "@/components/note/Note.astro";
-import { getAllPosts } from "@/data/post";
-import PageLayout from "@/layouts/Base.astro";
-import { collectionDateSort } from "@/utils/date";
+import { getCollection } from "astro:content";
+import NotePreview from "../components/NotePreview.astro";
+import PostPreview from "../components/PostPreview.astro";
+import SocialList from "../components/SocialList.astro";
+import Base from "../layouts/Base.astro";
 
-// Posts
-const MAX_POSTS = 5;
-const allPosts = await getAllPosts();
-const allPostsByDate = allPosts
-	.sort(collectionDateSort)
-	.slice(0, MAX_POSTS) as CollectionEntry<"post">[];
+const posts = (
+  await getCollection("post", ({ data }) => import.meta.env.DEV || !data.draft)
+)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
 
-// Notes
-const MAX_NOTES = 3;
-const allNotes = await getCollection("note");
-const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
-
-// Notion // TODO: Make this actually work
-// const allEntriesFromDatabase = await getCollection("database");
+const notes = (await getCollection("note"))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 2);
 ---
 
-<PageLayout meta={{ title: "Home" }}>
-	<section>
-		<h1 class="title mb-6">Hi! I'm Omar.</h1>
-		<p class="mb-4">
-			I am a self-taught Full-Stack Engineer passionate about building products that delight users.
-			I also thoroughly enjoy reading historical fictions and playing role-playing games.
-		</p>
-		<SocialList />
-	</section>
-	<section aria-label="Blog post list" class="mt-16">
-		<h2 class="title mb-6 text-xl text-accent"><a href="/posts/">Posts</a></h2>
-		<ul class="space-y-4" role="list">
-			{
-				allPostsByDate.map((p) => (
-					<li class="grid gap-2 sm:grid-cols-[auto_1fr]">
-						<PostPreview post={p} />
-					</li>
-				))
-			}
-		</ul>
-	</section>
-	{
-		latestNotes.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title mb-6 text-xl text-accent">
-					<a href="/notes/">Notes</a>
-				</h2>
-				<ul class="space-y-4" role="list">
-					{latestNotes.map((note) => (
-						<li>
-							<Note note={note} as="h3" isPreview />
-						</li>
-					))}
-				</ul>
-			</section>
-		)
-	}
-</PageLayout>
+<Base>
+  <section class="max-w-2xl">
+    <h1 class="text-4xl font-bold tracking-tight text-content sm:text-6xl">
+      Hi, I'm Omar.
+    </h1>
+    <p class="mt-6 text-lg leading-8 text-muted">
+      I am a self-taught full-stack engineer passionate about building products
+      that delight users. I also thoroughly enjoy reading historical fiction and
+      playing role-playing games.
+    </p>
+    <div class="mt-6">
+      <SocialList />
+    </div>
+  </section>
+
+  <section class="mt-16">
+    <div class="mb-6 flex items-end justify-between gap-4">
+      <h2 class="text-2xl font-bold tracking-tight">Latest posts</h2>
+      <a class="text-sm font-medium text-accent" href="/posts/">All posts</a
+      >
+    </div>
+    <div class="grid gap-5">
+      {posts.map((post) => <PostPreview post={post} />)}
+    </div>
+  </section>
+
+  {
+    notes.length > 0 && (
+      <section class="mt-16">
+        <div class="mb-6 flex items-end justify-between gap-4">
+          <h2 class="text-2xl font-bold tracking-tight">Notes</h2>
+          <a class="text-sm font-medium text-accent" href="/notes/">
+            All notes
+          </a>
+        </div>
+        <div class="grid gap-5">
+          {notes.map((note) => (
+            <NotePreview note={note} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</Base>

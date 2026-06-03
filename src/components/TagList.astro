@@ -1,0 +1,19 @@
+---
+import Chip from './Chip.astro';
+
+interface Props {
+	tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+{
+	tags.length > 0 && (
+		<div class="flex flex-wrap gap-2">
+			{tags.map((tag) => (
+				<Chip href={`/tags/${tag}/`}>#{tag}</Chip>
+			))}
+		</div>
+	)
+}

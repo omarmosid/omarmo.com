@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectPreview from '../../components/ProjectPreview.astro';
+import Base from '../../layouts/Base.astro';
+
+const projects = (await getCollection('project', ({ data }) => import.meta.env.DEV || !data.draft)).sort(
+	(a, b) => Number(b.data.featured) - Number(a.data.featured) || b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
+---
+
+<Base title="Projects" description="Projects by Omar Mo">
+	<header class="mb-10">
+		<h1 class="text-4xl font-bold tracking-tight text-content sm:text-5xl">Projects</h1>
+		<p class="mt-4 text-lg text-muted">Selected work and experiments.</p>
+	</header>
+	<div class="grid gap-5">
+		{projects.map((project) => <ProjectPreview project={project} />)}
+	</div>
+</Base>

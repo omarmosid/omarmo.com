@@ -1,23 +1,20 @@
 ---
-import { render } from "astro:content";
-import { getAllProjects } from "@/data/project";
-import ProjectLayout from "@/layouts/ProjectPost.astro";
-import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import ProjectPost from '../../layouts/ProjectPost.astro';
 
-export const getStaticPaths = (async () => {
-	const projectEntries = await getAllProjects();
-	return projectEntries.map((project) => ({
-		params: { slug: project.id },
-		props: { project },
-	}));
-}) satisfies GetStaticPaths;
+export async function getStaticPaths() {
+	const projects = await getCollection('project', ({ data }) => import.meta.env.DEV || !data.draft);
+	return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+interface Props {
+	project: CollectionEntry<'project'>;
+}
 
 const { project } = Astro.props;
-const { Content } = await render(project);
+const { Content, remarkPluginFrontmatter } = await render(project);
 ---
 
-<ProjectLayout project={project}>
+<ProjectPost project={project} readingTime={remarkPluginFrontmatter.minutesRead}>
 	<Content />
-</ProjectLayout>
+</ProjectPost>

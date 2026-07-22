@@ -1,31 +1,32 @@
 ---
-import { getCollection } from "astro:content";
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import ContentHeader from '../../components/ContentHeader.astro';
+import Base from '../../layouts/Base.astro';
 
-import Note from "@/components/note/Note.astro";
-import PageLayout from "@/layouts/Base.astro";
-import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+export async function getStaticPaths() {
+	const notes = await getCollection('note');
+	return notes.map((note) => ({ params: { slug: note.id }, props: { note } }));
+}
 
-// if you're using an adaptor in SSR mode, getStaticPaths wont work -> https://docs.astro.build/en/guides/routing/#modifying-the-slug-example-for-ssr
-export const getStaticPaths = (async () => {
-	const allNotes = await getCollection("note");
-	return allNotes.map((note) => ({
-		params: { slug: note.id },
-		props: { note },
-	}));
-}) satisfies GetStaticPaths;
-
-export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+interface Props {
+	note: CollectionEntry<'note'>;
+}
 
 const { note } = Astro.props;
-
-const meta = {
-	description:
-		note.data.description ||
-		`Read about my note posted on: ${note.data.publishDate.toLocaleDateString()}`,
-	title: note.data.title,
-};
+const { Content, remarkPluginFrontmatter } = await render(note);
 ---
 
-<PageLayout meta={meta}>
-	<Note as="h1" note={note} />
-</PageLayout>
+<Base title={note.data.title} description={note.data.description ?? note.data.title}>
+	<article>
+		<ContentHeader
+			kicker="Note"
+			title={note.data.title}
+			description={note.data.description}
+			date={note.data.publishDate}
+			readingTime={remarkPluginFrontmatter.minutesRead}
+		/>
+		<div class="prose-site">
+			<Content />
+		</div>
+	</article>
+</Base>

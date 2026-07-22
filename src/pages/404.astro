@@ -1,13 +1,12 @@
 ---
-import PageLayout from "@/layouts/Base.astro";
-
-const meta = {
-	description: "Oops! It looks like this page is lost in space!",
-	title: "Oops! You found a missing page!",
-};
+import Base from '../layouts/Base.astro';
 ---
 
-<PageLayout meta={meta}>
-	<h1 class="title mb-6">404 | Oops something went wrong</h1>
-	<p class="mb-8">Please use the navigation to find your way back</p>
-</PageLayout>
+<Base title="Not found" description="Page not found">
+	<section class="py-16">
+		<p class="mb-4 text-sm font-semibold uppercase tracking-widest text-accent">404</p>
+		<h1 class="text-4xl font-bold tracking-tight text-content sm:text-5xl">Page not found</h1>
+		<p class="mt-4 text-muted">This page does not exist, or it moved during the site rebuild.</p>
+		<a class="mt-8 inline-flex font-medium text-accent" href="/">Go home</a>
+	</section>
+</Base>

@@ -1,16 +1,17 @@
 ---
-import { getFormattedDate } from "@/utils/date";
-import type { HTMLAttributes } from "astro/types";
-
-type Props = HTMLAttributes<"time"> & {
+interface Props {
 	date: Date;
-	dateTimeOptions?: Intl.DateTimeFormatOptions;
-};
+}
 
-const { date, dateTimeOptions, ...attrs } = Astro.props;
-
-const postDate = getFormattedDate(date, dateTimeOptions);
-const ISO = date.toISOString();
+const { date } = Astro.props;
 ---
 
-<time datetime={ISO} title={ISO} {...attrs}>{postDate}</time>
+<time datetime={date.toISOString()}>
+	{
+		date.toLocaleDateString('en-GB', {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+		})
+	}
+</time>

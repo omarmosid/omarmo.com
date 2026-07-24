@@ -4,7 +4,7 @@ Personal website for Omar Mo, built with Astro.
 
 ## Stack
 
-- Astro 6
+- Astro 7
 - Tailwind CSS v4
 - MDX content collections
 - Cloudflare adapter / Wrangler deploys

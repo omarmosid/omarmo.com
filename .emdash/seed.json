@@ -578,8 +578,7 @@
               "_type": "image",
               "_key": "img_w",
               "asset": {
-                "_ref": "https://raw.githubusercontent.com/omarmosid/omarmo.com/8b8a1f1e55b05745adc2ab57b2a279f6930b2438/src/content/post/new-city/edinburgh.jpeg",
-                "url": "https://raw.githubusercontent.com/omarmosid/omarmo.com/8b8a1f1e55b05745adc2ab57b2a279f6930b2438/src/content/post/new-city/edinburgh.jpeg"
+                "url": "/images/edinburgh.jpeg"
               },
               "alt": "Edinburgh Street"
             },

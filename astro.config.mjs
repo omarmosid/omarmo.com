@@ -10,6 +10,7 @@ import { sqlite } from 'emdash/db';
 import cloudflare from '@astrojs/cloudflare';
 import node from '@astrojs/node';
 import { d1, r2 } from '@emdash-cms/cloudflare';
+import { cloudflareEmail } from '@emdash-cms/cloudflare/plugins';
 
 const isCloudflareBuild = process.env.EMDASH_TARGET === 'cloudflare';
 
@@ -28,6 +29,14 @@ export default defineConfig({
             directory: './uploads',
             baseUrl: '/_emdash/api/media/file',
           }),
+      plugins: isCloudflareBuild
+        ? [
+            cloudflareEmail({
+              binding: 'EMAIL',
+              from: { email: 'noreply@omarmo.com', name: 'Omar Mo' },
+            }),
+          ]
+        : [],
     }),
   ],
   adapter: isCloudflareBuild ? cloudflare() : node({ mode: 'standalone' }),

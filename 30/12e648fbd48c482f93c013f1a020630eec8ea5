@@ -1,0 +1,19 @@
+worker-configuration.d.ts
+  s_d38828e953ad9a::t_532d2c0c445539 2,5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "3012e648fbd48c482f93c013f1a020630eec8ea5",
+  "prompts": {},
+  "sessions": {
+    "s_d38828e953ad9a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06e7f3926ffebJPaSbyaWFVNJm",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Omar Mohammad <omarmo@cloudflare.com>"
+    }
+  }
+}

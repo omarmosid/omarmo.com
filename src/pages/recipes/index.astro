@@ -1,10 +1,17 @@
 ---
-import { getCollection } from 'astro:content';
+export const prerender = false;
+
+import { getEmDashCollection } from 'emdash';
 import RecipePreview from '../../components/RecipePreview.astro';
+import { asDate, setContentCache, type RecipeEntry } from '../../lib/emdash-content';
 import Base from '../../layouts/Base.astro';
 
-const recipes = (await getCollection('recipe', ({ data }) => import.meta.env.DEV || !data.draft)).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+setContentCache(Astro.response);
+
+const { entries, error } = await getEmDashCollection('recipes', { status: 'published' });
+if (error) return new Response('Failed to load recipes', { status: 500 });
+const recipes = (entries as RecipeEntry[]).sort(
+	(a, b) => (asDate(b.data.publish_date)?.valueOf() ?? 0) - (asDate(a.data.publish_date)?.valueOf() ?? 0),
 );
 ---
 

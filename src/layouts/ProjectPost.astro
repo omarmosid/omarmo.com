@@ -1,16 +1,16 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import Chip from '../components/Chip.astro';
 import ContentHeader from '../components/ContentHeader.astro';
+import { type ProjectEntry } from '../lib/emdash-content';
 import Base from './Base.astro';
 
 interface Props {
-	project: CollectionEntry<'project'>;
+	project: ProjectEntry;
 	readingTime?: string;
 }
 
 const { project, readingTime } = Astro.props;
-const { description, githubUrl, liveUrl, technologies, title } = project.data;
+const { description, github_url, live_url, technologies = [], title } = project.data;
 ---
 
 <Base title={title} description={description}>
@@ -18,8 +18,8 @@ const { description, githubUrl, liveUrl, technologies, title } = project.data;
 		<ContentHeader kicker="Project" title={title} description={description} readingTime={readingTime}>
 			<div slot="meta" class="space-y-4">
 				<div class="flex flex-wrap gap-3 text-sm font-medium">
-					{liveUrl && <a class="text-accent" href={liveUrl} rel="noreferrer" target="_blank">Live site</a>}
-					{githubUrl && <a class="text-accent" href={githubUrl} rel="noreferrer" target="_blank">GitHub</a>}
+					{live_url && <a class="text-accent" href={live_url} rel="noreferrer" target="_blank">Live site</a>}
+					{github_url && <a class="text-accent" href={github_url} rel="noreferrer" target="_blank">GitHub</a>}
 				</div>
 				{
 					technologies.length > 0 && (

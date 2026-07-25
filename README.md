@@ -5,20 +5,15 @@ Personal website for Omar Mo, built with Astro.
 ## Stack
 
 - Astro 7
+- EmDash CMS
 - Tailwind CSS v4
-- MDX content collections
-- Cloudflare adapter / Wrangler deploys
+- Cloudflare Workers, D1, and R2
 - `@fontsource/rubik`
 - `phosphor-astro` for small UI icons
 
 ## Content
 
-Content lives under `src/content/`:
-
-- `post/` - blog posts
-- `note/` - short notes
-- `project/` - project writeups
-- `recipe/` - recipes
+Content is managed in EmDash at `/_emdash/admin`. The initial content model and migrated entries are seeded from `.emdash/seed.json`.
 
 Routes are in `src/pages/`. Shared UI is in `src/components/`; page shells are in `src/layouts/`.
 

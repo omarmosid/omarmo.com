@@ -1,0 +1,4705 @@
+{
+  "$schema": "https://emdashcms.com/seed.schema.json",
+  "version": "1",
+  "meta": {
+    "name": "omarmo.com",
+    "description": "Migrated content model and entries from Astro content collections.",
+    "author": "Omar Mo"
+  },
+  "settings": {
+    "title": "Omar Mo",
+    "tagline": "Personal website for Omar Mo"
+  },
+  "collections": [
+    {
+      "slug": "posts",
+      "label": "Posts",
+      "labelSingular": "Post",
+      "description": "Blog posts",
+      "icon": "file-text",
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "description",
+          "label": "Description",
+          "type": "text",
+          "required": true
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "required": true
+        },
+        {
+          "slug": "cover_image",
+          "label": "Cover Image",
+          "type": "image"
+        },
+        {
+          "slug": "og_image",
+          "label": "Open Graph Image",
+          "type": "string"
+        },
+        {
+          "slug": "publish_date",
+          "label": "Publish Date",
+          "type": "datetime",
+          "required": true
+        },
+        {
+          "slug": "updated_date",
+          "label": "Updated Date",
+          "type": "datetime"
+        }
+      ]
+    },
+    {
+      "slug": "notes",
+      "label": "Notes",
+      "labelSingular": "Note",
+      "description": "Short notes",
+      "icon": "notebook-text",
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "description",
+          "label": "Description",
+          "type": "text"
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "required": true
+        },
+        {
+          "slug": "publish_date",
+          "label": "Publish Date",
+          "type": "datetime",
+          "required": true
+        }
+      ]
+    },
+    {
+      "slug": "projects",
+      "label": "Projects",
+      "labelSingular": "Project",
+      "description": "Project writeups",
+      "icon": "folder-kanban",
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "description",
+          "label": "Description",
+          "type": "text",
+          "required": true
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "required": true
+        },
+        {
+          "slug": "cover_image",
+          "label": "Cover Image",
+          "type": "image"
+        },
+        {
+          "slug": "technologies",
+          "label": "Technologies",
+          "type": "json"
+        },
+        {
+          "slug": "github_url",
+          "label": "GitHub URL",
+          "type": "url"
+        },
+        {
+          "slug": "live_url",
+          "label": "Live URL",
+          "type": "url"
+        },
+        {
+          "slug": "start_date",
+          "label": "Start Date",
+          "type": "datetime",
+          "required": true
+        },
+        {
+          "slug": "end_date",
+          "label": "End Date",
+          "type": "datetime"
+        },
+        {
+          "slug": "featured",
+          "label": "Featured",
+          "type": "boolean",
+          "defaultValue": false
+        }
+      ]
+    },
+    {
+      "slug": "recipes",
+      "label": "Recipes",
+      "labelSingular": "Recipe",
+      "description": "Recipes",
+      "icon": "cooking-pot",
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "description",
+          "label": "Description",
+          "type": "text",
+          "required": true
+        },
+        {
+          "slug": "content",
+          "label": "Content",
+          "type": "portableText",
+          "required": true
+        },
+        {
+          "slug": "cover_image",
+          "label": "Cover Image",
+          "type": "image"
+        },
+        {
+          "slug": "publish_date",
+          "label": "Publish Date",
+          "type": "datetime",
+          "required": true
+        },
+        {
+          "slug": "updated_date",
+          "label": "Updated Date",
+          "type": "datetime"
+        },
+        {
+          "slug": "prep_time",
+          "label": "Prep Time",
+          "type": "string"
+        },
+        {
+          "slug": "cook_time",
+          "label": "Cook Time",
+          "type": "string"
+        },
+        {
+          "slug": "servings",
+          "label": "Servings",
+          "type": "integer"
+        },
+        {
+          "slug": "ingredients",
+          "label": "Ingredients",
+          "type": "json"
+        },
+        {
+          "slug": "cuisine",
+          "label": "Cuisine",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "taxonomies": [
+    {
+      "name": "tag",
+      "label": "Tags",
+      "labelSingular": "Tag",
+      "hierarchical": false,
+      "collections": [
+        "posts",
+        "projects",
+        "recipes"
+      ],
+      "terms": [
+        {
+          "slug": "ai",
+          "label": "ai"
+        },
+        {
+          "slug": "blog",
+          "label": "blog"
+        },
+        {
+          "slug": "career",
+          "label": "career"
+        },
+        {
+          "slug": "cloudflare",
+          "label": "cloudflare"
+        },
+        {
+          "slug": "consulting",
+          "label": "consulting"
+        },
+        {
+          "slug": "design",
+          "label": "design"
+        },
+        {
+          "slug": "drinks",
+          "label": "drinks"
+        },
+        {
+          "slug": "indian",
+          "label": "indian"
+        },
+        {
+          "slug": "javascript",
+          "label": "javascript"
+        },
+        {
+          "slug": "jobs",
+          "label": "jobs"
+        },
+        {
+          "slug": "leadership",
+          "label": "leadership"
+        },
+        {
+          "slug": "mind",
+          "label": "mind"
+        },
+        {
+          "slug": "open-source",
+          "label": "open-source"
+        },
+        {
+          "slug": "performance",
+          "label": "performance"
+        },
+        {
+          "slug": "privacy",
+          "label": "privacy"
+        },
+        {
+          "slug": "professional-services",
+          "label": "professional-services"
+        },
+        {
+          "slug": "rants",
+          "label": "rants"
+        },
+        {
+          "slug": "reflections",
+          "label": "reflections"
+        },
+        {
+          "slug": "security",
+          "label": "security"
+        },
+        {
+          "slug": "software-engineering",
+          "label": "software-engineering"
+        },
+        {
+          "slug": "tea",
+          "label": "tea"
+        },
+        {
+          "slug": "ux",
+          "label": "ux"
+        },
+        {
+          "slug": "web",
+          "label": "web"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "posts": [
+      {
+        "id": "solve-problems",
+        "slug": "solve-problems",
+        "status": "published",
+        "data": {
+          "title": "Don't write code. Solve problems.",
+          "description": "AI is making it easier than ever to write code. The real challenge — and the real value — lies in solving problems that matter.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "b_2",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1",
+                  "text": "With AI becoming more capable every day, I've been reflecting on what my core competency as a software engineer really is. And I don't think it's \"writing code\" anymore."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_4",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3",
+                  "text": "Anyone can build an app now — that part has become simple. The harder part is building an app (or anything else) that actually solves a problem for real people. That's where the real value lies."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_6",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5",
+                  "text": "Of course, engineering skills still matter. You still need to understand the code you write — the internals, best practices, security fundamentals. Without that foundation, you're just hacking things together without really knowing what you've built. But those skills on their own aren't enough anymore."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_8",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_7",
+                  "text": "The difference-maker is everything around the code:"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_a",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9",
+                  "text": "Being reliable."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_c",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_b",
+                  "text": "Building fast, failing fast, learning fast, and trying again."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_e",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_d",
+                  "text": "Caring about users and customers, not just the tech."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_g",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_f",
+                  "text": "Contributing to open source as a way to grow, sharpen your skills, and stay connected to the community."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_i",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_h",
+                  "text": "I came across this thought from my colleague Sunil Pai recently, and it resonated with me:"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_k",
+              "style": "blockquote",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_j",
+                  "text": "this might sound extremely reductive, and I’ll probably write something longer about it; but recording a thought I’ve now had for weeks and have heard variations from enough other people that there’s a pattern emerging:"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_m",
+              "style": "blockquote",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_l",
+                  "text": "the future belongs to people who can think and act clearly, deeply, and practically."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_o",
+              "style": "blockquote",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_n",
+                  "text": "(always has. but the gulf will now widen. the environment is adversarial. the rewards are uncountable.)"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_t",
+              "style": "blockquote",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_p",
+                  "text": "— Sunil Pai ("
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_r",
+                  "text": "https://twitter.com/threepointone/status/1903825853454172491",
+                  "marks": [
+                    "m_q"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_s",
+                  "text": ")"
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_q",
+                  "href": "https://twitter.com/threepointone/status/1903825853454172491"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_v",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_u",
+                  "text": "Because anyone can write code now. Not everyone can solve problems."
+                }
+              ]
+            }
+          ],
+          "publish_date": "2025-09-10T23:00:00.000Z",
+          "updated_date": "2025-09-10T23:00:00.000Z"
+        },
+        "taxonomies": {
+          "tag": [
+            "software-engineering",
+            "ai",
+            "reflections",
+            "open-source"
+          ]
+        }
+      },
+      {
+        "id": "new-city",
+        "slug": "new-city",
+        "status": "published",
+        "data": {
+          "title": "Exploring a new city",
+          "description": "Why some places feel familiar so fast—and why it’s not the same for everyone",
+          "content": [
+            {
+              "_type": "image",
+              "_key": "img_w",
+              "asset": {
+                "_ref": "https://raw.githubusercontent.com/omarmosid/omarmo.com/8b8a1f1e55b05745adc2ab57b2a279f6930b2438/src/content/post/new-city/edinburgh.jpeg",
+                "url": "https://raw.githubusercontent.com/omarmosid/omarmo.com/8b8a1f1e55b05745adc2ab57b2a279f6930b2438/src/content/post/new-city/edinburgh.jpeg"
+              },
+              "alt": "Edinburgh Street"
+            },
+            {
+              "_type": "block",
+              "_key": "b_y",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_x",
+                  "text": "Doesn't this feel so familiar already?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_10",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_z",
+                  "text": "On our last vacation in Edinburgh, my wife turned to me mid-walk and said,\n\"Doesn't this feel so familiar already?\""
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_12",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_11",
+                  "text": "She was right. We’d only been there three days, yet somehow, we knew where to find the best coffee, which side streets to cut through, and even when it was worth breaking the rules and jaywalking. It felt like we belonged."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_14",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_13",
+                  "text": "But then I thought of my cousin in Leicester. He’s lived there for years, but if you asked him to walk you to the nearest park without GPS, he’d open Google Maps. Not because he’s lazy—he just doesn’t seem to build that “mental map” of places the way some people do."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_19",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_15",
+                  "text": "Over time, I’ve learned there’s a difference between two types of navigation knowledge"
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_17",
+                  "text": "[1]",
+                  "marks": [
+                    "m_16"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_18",
+                  "text": ":"
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_16",
+                  "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4169750/"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_1b",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1a",
+                  "text": "Route knowledge – knowing how to get somewhere step-by-step. (“Turn left at the bakery, then right at the bus stop.”)"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_1d",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1c",
+                  "text": "Survey knowledge – knowing where things are in relation to each other. (“The park is north of the high street, and the coffee shop is west of the station.”)"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_1f",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1e",
+                  "text": "Some people—like my cousin—seem to stick to route knowledge. It works fine if the route never changes, but take away the familiar path or the GPS instructions, and it’s easy to get lost."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_1h",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1g",
+                  "text": "Others naturally shift towards survey knowledge. They start building a bigger picture of the place, so they can take detours, make shortcuts, or even give directions without retracing a set route."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_1j",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1i",
+                  "text": "GPS and the Way We See the World"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_1l",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1k",
+                  "text": "GPS is brilliant for getting you somewhere quickly, but it’s perfect for building route knowledge and almost useless for survey knowledge. You get to your destination, but you don’t really learn the city."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_1n",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1m",
+                  "text": "Maybe that’s why Edinburgh felt so familiar to us so quickly—we’d been walking, exploring, noticing. We weren’t being told every turn. We were holding the map in our heads and letting it grow with each day."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_1p",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1o",
+                  "text": "The Ongoing Debate at Home"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_1r",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1q",
+                  "text": "This ties into a long-standing conversation between my wife and me."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_1t",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1s",
+                  "text": "I’m the one who says, “Get things out of your head. Use tools. Lighten the load.” If technology can remember it for me, why keep it in my brain?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_1v",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1u",
+                  "text": "My wife—being a psychologist—leans the other way. “Use your brain. Don’t become too dependent on external things,” she says. She believes relying too much on tech is like skipping a workout for your mind."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_1x",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1w",
+                  "text": "We’ll probably never fully agree. But in Edinburgh, I had to admit—there was something to her point."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_1z",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_1y",
+                  "text": "A Thought That Stayed With Me"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_21",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_20",
+                  "text": "It made me realise that familiarity isn’t just about time spent—it’s about the kind of map you’re building in your head. And maybe, the cities that feel most like home are the ones where you’ve let yourself see the whole picture, not just the path in front of you."
+                }
+              ]
+            }
+          ],
+          "publish_date": "2025-08-12T23:00:00.000Z",
+          "updated_date": "2025-08-12T23:00:00.000Z"
+        },
+        "taxonomies": {
+          "tag": [
+            "mind",
+            "rants"
+          ]
+        }
+      },
+      {
+        "id": "3-lessons-3-years-cloudflare",
+        "slug": "3-lessons-3-years-cloudflare",
+        "status": "draft",
+        "data": {
+          "title": "3 Lessons From My 3 Years at Cloudflare",
+          "description": "Lessons learned from my time at Cloudflare, including the importance of asking questions, continuous learning, and focusing on the bigger picture.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "b_23",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_22",
+                  "text": "Three years ago, I joined Cloudflare, excited but also… terrified.\nI had just stepped into one of the most talented engineering teams I’d ever seen. Everyone seemed smarter, quicker, and more experienced. My inner voice kept saying: Don’t mess up. Don’t ask a stupid question. Just keep your head down and deliver."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_25",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_24",
+                  "text": "I quickly learned that mindset would hold me back — and that the real growth came from leaning into discomfort. Here are the three lessons that changed how I work."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_27",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_26",
+                  "text": "1. Ask Questions — Even When It’s Uncomfortable"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_29",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_28",
+                  "text": "In my first few months, I was obsessed with “performing.” I wanted to prove I could keep up, so I avoided asking questions that might make me look inexperienced. The result? I’d spend hours figuring something out that I could’ve solved in minutes if I’d just spoken up."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_2b",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2a",
+                  "text": "One day, I got stuck on a gnarly bug in our backend validation code. I hesitated for hours before finally asking a senior engineer for help. Instead of judging me, they walked me through the problem — and even complimented how I’d framed my question: I had written down my understanding, my assumptions, what I’d already tried, and my end goal."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_2d",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2c",
+                  "text": "That’s when it clicked: asking questions is a skill.\nThe better you prepare your question, the more respect you earn. My go-to approach became:"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_2f",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2e",
+                  "text": "Frame your understanding (“Here’s how I think this works…”)"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_2h",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2g",
+                  "text": "Share your assumptions"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_2j",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2i",
+                  "text": "Explain what you’ve tried"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_2l",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2k",
+                  "text": "State your end goal"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_2n",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2m",
+                  "text": "Sometimes I’d even write a “brain dump” in a wiki or spec before asking. Not only did it make my questions sharper, it often led me to the answer myself."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_2p",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2o",
+                  "text": "2. Be Reliable — Even on Your Worst Days"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_2r",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2q",
+                  "text": "I’ve had days where my motivation was low, my energy was shot, or things outside of work were weighing on me. But early on, I realised something important: your reputation isn’t built on your best days. It’s built on your worst ones."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_2t",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2s",
+                  "text": "My manager Ruskin once told me: “You’re as good as your worst day.” It reminded me of James Clear’s line from Atomic Habits:"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_2v",
+              "style": "blockquote",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2u",
+                  "text": "You don’t rise to the level of your goals, you fall to the level of your systems."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_2x",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2w",
+                  "text": "Reliability is about building systems so you can deliver consistently. For me, that meant:"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_2z",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_2y",
+                  "text": "Breaking down projects into daily and weekly goals"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_31",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_30",
+                  "text": "Breaking down tasks/tickets into smaller more managable pieces"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_33",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_32",
+                  "text": "Aligning with my manager on what “done” means before starting on any task/project"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_35",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_34",
+                  "text": "Paying attention to details, being my own QA."
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_37",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_36",
+                  "text": "Seeking clarity early so I didn’t waste time later"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_39",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_38",
+                  "text": "Following through, even when I didn’t feel like it"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_3b",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3a",
+                  "text": "The payoff? People began to trust that if I committed to something, it would get done — no matter what was going on behind the scenes."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_3d",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3c",
+                  "text": "3. Be Customer-Obsessed — Your Job Doesn’t End at Shipping Code"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_3f",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3e",
+                  "text": "One of the biggest mindset shifts I had was realising my work wasn’t “done” when the code was merged."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_3h",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3g",
+                  "text": "At Cloudflare, some of our most valuable insights came from Solution Engineers (who design solutions for customers) and Account Managers (who maintain relationships and advocate for customer needs). Many times, they’d bring up a bug or feature request that came directly from a frustrated customer."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_3j",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3i",
+                  "text": "Early in my career, I might’ve treated that like just another ticket. Now, I see it differently:"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_3l",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3k",
+                  "text": "That bug could be blocking someone from launching their product."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_3n",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3m",
+                  "text": "That feature request could save a team hours of work every week."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_3p",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3o",
+                  "text": "I started engaging more — joining Discord conversations, reading through community forum threads, and even following up directly with the SE or AM who reported an issue. Not only did it make the products better, it gave me a real sense of purpose."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_3r",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3q",
+                  "text": "Final Word"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_3t",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3s",
+                  "text": "These three lessons — asking better questions, being reliable, and obsessing over the customer — aren’t complicated. But practiced over years, they compound into something powerful."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_3v",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3u",
+                  "text": "I’d love to hear: what’s one lesson you’ve learned that’s shaped your career?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_3z",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_3w",
+                  "text": "📍 X: "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_3y",
+                  "text": "@omarmosid",
+                  "marks": [
+                    "m_3x"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_3x",
+                  "href": "x.com/@omarmosid"
+                }
+              ]
+            }
+          ],
+          "publish_date": "2025-09-07T23:00:00.000Z",
+          "updated_date": "2025-09-07T23:00:00.000Z"
+        },
+        "taxonomies": {
+          "tag": [
+            "career"
+          ]
+        }
+      },
+      {
+        "id": "referrals",
+        "slug": "referrals",
+        "status": "published",
+        "data": {
+          "title": "Why I Only Refer People I Know Personally",
+          "description": "Referrals only work when there’s real trust. Here’s why I only recommend people I know personally, and how you can reach out if you want one.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "b_41",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_40",
+                  "text": "People ask me for referrals all the time. My answer is always the same: I only refer people I know personally."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_43",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_42",
+                  "text": "Here’s why: a referral isn’t just about passing along a name. It only makes sense if I actually know how someone works, how reliable they are, and what kind of value they bring. That’s not something you can see from a LinkedIn profile or a CV — it comes from real interaction."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_45",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_44",
+                  "text": "When I refer someone, I want it to be genuinely useful. If I connect you with a person, it’s because I’ve seen enough to know they’ll add value. Otherwise, the introduction wastes everyone’s time."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_47",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_46",
+                  "text": "I’d rather give fewer referrals that actually help, than throw out names I can’t vouch for. It keeps things authentic and makes sure the people I do refer are taken seriously."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_49",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_48",
+                  "text": "How to Reach Out to Me If You Want a Referral"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_4e",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4a",
+                  "text": "If you want me to know you, introduce yourself properly. Tell me who you are, what you do, and why you’re reaching out. Don’t just send me a “hi” and wait — that goes nowhere. (see: "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_4c",
+                  "text": "nohello.net",
+                  "marks": [
+                    "m_4b"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_4d",
+                  "text": ")"
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_4b",
+                  "href": "https://nohello.net"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_4g",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4f",
+                  "text": "Make it easy for me to understand who you are and why you’re asking. That’s the first step to building the kind of connection where a referral actually makes sense."
+                }
+              ]
+            }
+          ],
+          "publish_date": "2025-09-21T23:00:00.000Z",
+          "updated_date": "2025-09-21T23:00:00.000Z"
+        },
+        "taxonomies": {
+          "tag": [
+            "reflections",
+            "jobs",
+            "career"
+          ]
+        }
+      },
+      {
+        "id": "good-design",
+        "slug": "good-design",
+        "status": "published",
+        "data": {
+          "title": "What makes Good design Good?",
+          "description": "What makes Good design Good?",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "b_4i",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4h",
+                  "text": "Design, as defined by Wells Riley, on his wonderful website that talks all about design, is nothing but a method of solving a problem."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_4k",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4j",
+                  "text": "Mr Riley argues that our approach towards design can be painfully superficial. In recent times, he and many other notable and well respected designers in industry and academia have come out in public to denounce how little design has to do with how glossy that brand logo is, or how eye-catching that one page website is, or how elegant that new type font is."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_4m",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4l",
+                  "text": "Now before we go any further I must mention that in this piece I've focused on Visual design in particular because it happens to be my field of interest, but what I am about to discuss below encompasses the entire spectrum of design and its multiple sub disciplines."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_4o",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4n",
+                  "text": "Having said that, let me begin by asking a very fundamental yet often asked question: What is good design?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_4q",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4p",
+                  "text": "chuckles quietly",
+                  "marks": [
+                    "em"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_4s",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4r",
+                  "text": "Yep. It's difficult to define now, isn't it? But give it a minute. Look around you."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_4u",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4t",
+                  "text": "Done already? Fine. You know what, lets look at this article of mine on Medium. Don't you think it is well designed? How easy is it for you to read this absolutely wonderful gem of literature? Does the text here make you strain and squint your eyes every now and then and distract you from what this magnificent author is trying to convey?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_4w",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4v",
+                  "text": "Or does the design seemingly flow around the content effortlessly like a feather drifting aimlessly on the shoulders of a warm afternoon breeze?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_4y",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4x",
+                  "text": "Yep. That's right. The best design you see, you cannot see. Good design, my dear friend is supposed to be notoriously invisible. That's what makes it frigging good. Now repeat after me,\nThe best design you see, you cannot see."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_50",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_4z",
+                  "text": "Secondly, design as defined by Mr Riley is supposed to solve problems. Not intensify them. And that is why, it is my opinion that there is no such thing as bad design. I believe that it's not even fair to attribute the sacred term design, in any sense; to an entity when it fails to do what it's supposed to do."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_52",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_51",
+                  "text": "Am I being too harsh?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_54",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_53",
+                  "text": "Everything on this planet has purpose. Good design as understood by the best designer minds on this planet facilitates an object to fulfill its purpose."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_56",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_55",
+                  "text": "That's it. Easy peasy."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_58",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_57",
+                  "text": "This is a blog. The Serif styled crystal clear font with the appropriate spacing between the words and the lines makes it easy for us to read it. The design here does what it has to do. And it does so quietly without drawing your attention towards itself. This is good design."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_5a",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_59",
+                  "text": "Good design is all about effective communication between the designer and the user. Good design is like that guy who speaks briskly but barely utters a audible phonetic. He sees with his eyes shut and hears with hands clasped around his ears. Good design can gobble up raw chilli and pepperika like a child gobbles up twisties. And when he touches us he touches the inside of our souls and makes flowers blossom and bloom all inside us, thereby resulting in the involuntary utterance of words of sheer delight and inexplicable joy."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_5c",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5b",
+                  "text": "Good design is never about what it looks like. It is about what it does."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_5e",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5d",
+                  "text": "FYI Medium does not pay me a cent to endorse them, but there is no denying that they give aspiring bloggers like me and inquisitive readers like you a rich and beautiful User-interface and User-Experience.\nNormally to illustrate my point I would paste hyperlinks of badly designed stuff from all around the world here. But I respect your intellect well enough to know that it is well within your capabilities to do your own research and observation. Trust me you'll find lots of examples on the world wide web."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_5g",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5f",
+                  "text": "So next time you see that flashy multi-colored Instagram logo, or that brand new portfolio website of your co-worker or that upcoming open house party flyer, ask your self that one question: Does it do what it's supposed to do?"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_5i",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5h",
+                  "text": "That's all for now."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_5k",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5j",
+                  "text": "Good Design FTW"
+                }
+              ]
+            }
+          ],
+          "publish_date": "2016-10-08T23:00:00.000Z",
+          "updated_date": "2016-10-08T23:00:00.000Z"
+        },
+        "taxonomies": {
+          "tag": [
+            "design",
+            "ux"
+          ]
+        }
+      }
+    ],
+    "notes": [
+      {
+        "id": "places-to-visit-london",
+        "slug": "places-to-visit-london",
+        "status": "published",
+        "data": {
+          "title": "London Tourist guide",
+          "description": "These are the places I recommend in London",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "b_5m",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5l",
+                  "text": "A friend of mine is visiting from Canada and asked me for my recommendations of places to visit."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_5o",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5n",
+                  "text": "Here's what I recommended to him:"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_5q",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5p",
+                  "text": "Big Ben, London Eye and South Bank Market"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_5s",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5r",
+                  "text": "Buckingham Palace and St James Park"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_5u",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5t",
+                  "text": "Piccadilly Circus and Oxford Street"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_5w",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5v",
+                  "text": "London Bridge, Tower Bridge and Tower of London"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_5y",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5x",
+                  "text": "Hyde Park, Monument, Kensington Palace, Natural History Museum"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_60",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_5z",
+                  "text": "Regents Park, London Central Mosque, Sherlock Holmes Museum"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_62",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_61",
+                  "text": "Cutty Sark, Royal Observatory in Greenwich"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_64",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_63",
+                  "text": "Whitechapel, East London Mosque"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ],
+          "publish_date": "2024-12-24T12:24:00.000Z"
+        }
+      }
+    ],
+    "projects": [
+      {
+        "id": "managed-components",
+        "slug": "managed-components",
+        "status": "draft",
+        "data": {
+          "title": "Managed Components",
+          "description": "An open format for defining third-party tool behaviors and capabilities, allowing fast and secure management of tools",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "b_66",
+              "style": "h1",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_65",
+                  "text": "Managed Components"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_68",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_67",
+                  "text": "Managed Components is an open format for defining third-party tool behaviors and capabilities, enabling fast and secure management of tools that run outside the browser."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_6a",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_69",
+                  "text": "Overview"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_6c",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6b",
+                  "text": "Managed Components revolutionizes how third-party tools are integrated into websites by moving execution away from the browser to servers and edge locations. This approach significantly improves performance, security, and privacy for web applications."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_6e",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6d",
+                  "text": "Key Features"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_6h",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6f",
+                  "text": "🚀 "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_6g",
+                  "text": "Performant",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_6j",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6i",
+                  "text": "Code execution outside the browser (server-side, edge computing)"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_6l",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6k",
+                  "text": "Reduced browser load and faster page rendering"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_6n",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6m",
+                  "text": "No need for additional JavaScript execution in the browser"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_6p",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6o",
+                  "text": "Eliminates external server connections during page load"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_6s",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6q",
+                  "text": "🔒 "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_6r",
+                  "text": "Secure & Private",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_6u",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6t",
+                  "text": "Granular permissions system"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_6w",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6v",
+                  "text": "Components can only perform explicitly allowed actions"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_6y",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6x",
+                  "text": "No JavaScript execution in browser by default"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_70",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_6z",
+                  "text": "Enhanced user privacy protection"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_73",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_71",
+                  "text": "🆓 "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_72",
+                  "text": "Free & Open Source",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_75",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_74",
+                  "text": "Runs freely using WebCM (open source Components Manager)"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_77",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_76",
+                  "text": "Growing ecosystem of open-sourced components"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_79",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_78",
+                  "text": "Community-driven development"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_7b",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_7a",
+                  "text": "Transparent and auditable codebase"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_7d",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_7c",
+                  "text": "Technologies Used"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_7g",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_7e",
+                  "text": "JavaScript/TypeScript",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_7f",
+                  "text": " - Core development language"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_7j",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_7h",
+                  "text": "WebCM",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_7i",
+                  "text": " - Open source Components Manager"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_7m",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_7k",
+                  "text": "Edge Computing",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_7l",
+                  "text": " - Distributed execution environment"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_7p",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_7n",
+                  "text": "Server-side Processing",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_7o",
+                  "text": " - Backend component execution"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_7r",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_7q",
+                  "text": "Impact & Benefits"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_7u",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_7s",
+                  "text": "Performance",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_7t",
+                  "text": ": Significantly reduced browser overhead and faster page loads"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_7x",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_7v",
+                  "text": "Security",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_7w",
+                  "text": ": Granular permission system prevents unauthorized actions"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_80",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_7y",
+                  "text": "Privacy",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_7z",
+                  "text": ": User data protection through controlled component behavior"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_83",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_81",
+                  "text": "Developer Experience",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_82",
+                  "text": ": Simple integration and management of third-party tools"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_85",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_84",
+                  "text": "Getting Started"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_87",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_86",
+                  "text": "The project provides comprehensive documentation and a 5-minute quickstart guide for developers to create their own Managed Components. The ecosystem includes:"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_89",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_88",
+                  "text": "Detailed specifications and documentation"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_8b",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_8a",
+                  "text": "Component creation tools"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_8d",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_8c",
+                  "text": "Active community support via Discord"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_8f",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_8e",
+                  "text": "Extensive GitHub repository with examples"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_8h",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_8g",
+                  "text": "What I Learned"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_8j",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_8i",
+                  "text": "This project demonstrates the importance of rethinking traditional web architecture patterns. By moving third-party tool execution away from the browser, we can achieve significant improvements in performance, security, and user privacy while maintaining functionality and ease of use."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_8l",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_8k",
+                  "text": "Links"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_8o",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_8n",
+                  "text": "Website",
+                  "marks": [
+                    "m_8m"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_8m",
+                  "href": "https://managedcomponents.dev"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_8r",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_8q",
+                  "text": "GitHub Organization",
+                  "marks": [
+                    "m_8p"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_8p",
+                  "href": "https://github.com/managed-components"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_8u",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_8t",
+                  "text": "Discord Community",
+                  "marks": [
+                    "m_8s"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_8s",
+                  "href": "https://discord.gg/2TRr6nSxdd"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_8x",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_8w",
+                  "text": "Create Component Tool",
+                  "marks": [
+                    "m_8v"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_8v",
+                  "href": "https://github.com/managed-components/create-managed-component"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ],
+          "technologies": [
+            "JavaScript",
+            "TypeScript",
+            "WebCM",
+            "Edge Computing"
+          ],
+          "github_url": "https://github.com/managed-components",
+          "live_url": "https://managedcomponents.dev",
+          "start_date": "2022-01-01T00:00:00.000Z",
+          "featured": true
+        },
+        "taxonomies": {
+          "tag": [
+            "web",
+            "javascript",
+            "privacy",
+            "performance",
+            "open-source"
+          ]
+        }
+      },
+      {
+        "id": "yawar-baig-website",
+        "slug": "yawar-baig-website",
+        "status": "draft",
+        "data": {
+          "title": "Yawar Baig & Associates Website",
+          "description": "Professional website for a trusted advisor and entrepreneur with 40+ years of global leadership development experience",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "b_8z",
+              "style": "h1",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_8y",
+                  "text": "Yawar Baig & Associates Website"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_91",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_90",
+                  "text": "A professional website showcasing the expertise and thought leadership of Yawar Baig, a trusted advisor and entrepreneur with over 40 years of global experience in leadership development, succession planning, and family business transformation."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_93",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_92",
+                  "text": "Overview"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_95",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_94",
+                  "text": "The website serves as a digital platform for Yawar Baig & Associates, featuring comprehensive information about leadership consulting services, extensive blog content, and resources for organizational transformation. The site emphasizes the mission of \"Changing the world, one mind at a time.\""
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_97",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_96",
+                  "text": "Key Features"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_9a",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_98",
+                  "text": "📚 "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_99",
+                  "text": "Thought Leadership Platform",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_9c",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9b",
+                  "text": "Extensive blog with regular articles on leadership, AI, family business, and organizational development"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_9e",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9d",
+                  "text": "40+ published books on leadership, family business, and talent development"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_9g",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9f",
+                  "text": "Educational content covering diverse topics from succession planning to contemporary challenges"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_9j",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9h",
+                  "text": "🎯 "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_9i",
+                  "text": "Professional Services Showcase",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_9l",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9k",
+                  "text": "Leadership development and coaching services"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_9n",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9m",
+                  "text": "Succession planning expertise"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_9p",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9o",
+                  "text": "Family business transformation consulting"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_9r",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9q",
+                  "text": "Organizational change from person-led to process-driven systems"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_9u",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9s",
+                  "text": "💼 "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_9t",
+                  "text": "Trusted Advisor Positioning",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_9w",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9v",
+                  "text": "Confidential sounding board for founders and entrepreneurs"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_9y",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9x",
+                  "text": "Senior executive coaching across industries and cultures"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_a0",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_9z",
+                  "text": "Global experience spanning multiple geographies"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_a2",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_a1",
+                  "text": "Recognized expertise in complex organizational challenges"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_a4",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_a3",
+                  "text": "Content Highlights"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_a6",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_a5",
+                  "text": "Recent Blog Topics"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_a9",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_a7",
+                  "text": "Advice to Seniors",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_a8",
+                  "text": " - Commencement guidance and life wisdom"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_ac",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_aa",
+                  "text": "Not So Hidden Cost of AI",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_ab",
+                  "text": " - Analysis of AI's impact on society"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_af",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ad",
+                  "text": "Family Farms",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_ae",
+                  "text": " - Insights into agricultural family businesses"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_ai",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ag",
+                  "text": "Ageing Gracefully",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_ah",
+                  "text": " - Perspectives on life transitions"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_al",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_aj",
+                  "text": "A World Without People",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_ak",
+                  "text": " - Commentary on automation and human connection"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_an",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_am",
+                  "text": "Technologies Used"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_aq",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ao",
+                  "text": "WordPress",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_ap",
+                  "text": " - Content management system"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_at",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ar",
+                  "text": "PHP",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_as",
+                  "text": " - Server-side scripting"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_aw",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_au",
+                  "text": "MySQL",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_av",
+                  "text": " - Database management"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_az",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ax",
+                  "text": "Responsive Design",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_ay",
+                  "text": " - Mobile-friendly interface"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_b1",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_b0",
+                  "text": "Target Audience"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_b4",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_b2",
+                  "text": "Founders & Entrepreneurs",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_b3",
+                  "text": " seeking strategic guidance"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_b7",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_b5",
+                  "text": "Senior Executives",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_b6",
+                  "text": " navigating organizational challenges"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_ba",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_b8",
+                  "text": "Family Business Owners",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_b9",
+                  "text": " planning succession"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_bd",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_bb",
+                  "text": "Leadership Development Professionals",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_bc",
+                  "text": " seeking insights"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_bg",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_be",
+                  "text": "Students and Professionals",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_bf",
+                  "text": " interested in leadership content"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_bi",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_bh",
+                  "text": "Impact & Value"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_bk",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_bj",
+                  "text": "For Clients",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_bm",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_bl",
+                  "text": "Access to decades of leadership expertise"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_bo",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_bn",
+                  "text": "Proven methodologies for organizational transformation"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_bq",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_bp",
+                  "text": "Confidential advisory services for complex challenges"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_bs",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_br",
+                  "text": "Cross-cultural and cross-industry insights"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_bu",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_bt",
+                  "text": "For Readers",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_bw",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_bv",
+                  "text": "Regular thought leadership content"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_by",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_bx",
+                  "text": "Practical insights on leadership and business"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_c0",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_bz",
+                  "text": "Educational resources on family business dynamics"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_c2",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_c1",
+                  "text": "Contemporary analysis of technology and society"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_c4",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_c3",
+                  "text": "Project Approach"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_c6",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_c5",
+                  "text": "The website balances professional credibility with accessibility, presenting complex leadership concepts in an approachable format. The blog serves as both a thought leadership platform and a demonstration of expertise, while the service pages clearly communicate value propositions for potential clients."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_c8",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_c7",
+                  "text": "What I Learned"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_ca",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_c9",
+                  "text": "This project demonstrates the importance of content marketing in professional services. By consistently publishing valuable insights and maintaining an active blog, the website establishes thought leadership and builds trust with potential clients. The combination of extensive experience (40+ years) with contemporary topics (AI, modern challenges) shows how established professionals can remain relevant in changing times."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_cc",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_cb",
+                  "text": "Links"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_cf",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ce",
+                  "text": "Website",
+                  "marks": [
+                    "m_cd"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_cd",
+                  "href": "http://yawarbaig.com/"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_ci",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ch",
+                  "text": "About Page",
+                  "marks": [
+                    "m_cg"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_cg",
+                  "href": "https://yawarbaig.com/about/"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_cl",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ck",
+                  "text": "Blog Archive",
+                  "marks": [
+                    "m_cj"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_cj",
+                  "href": "https://yawarbaig.com/blog/"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ],
+          "technologies": [
+            "WordPress",
+            "PHP",
+            "MySQL",
+            "Responsive Design"
+          ],
+          "live_url": "http://yawarbaig.com/",
+          "start_date": "2020-01-01T00:00:00.000Z",
+          "featured": false
+        },
+        "taxonomies": {
+          "tag": [
+            "web",
+            "leadership",
+            "consulting",
+            "blog",
+            "professional-services"
+          ]
+        }
+      },
+      {
+        "id": "cloudflare-zaraz",
+        "slug": "cloudflare-zaraz",
+        "status": "draft",
+        "data": {
+          "title": "Cloudflare Zaraz",
+          "description": "A third-party tool manager that loads tools in the cloud, away from browsers, improving performance and security",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "b_cn",
+              "style": "h1",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_cm",
+                  "text": "Cloudflare Zaraz"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_cp",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_co",
+                  "text": "Cloudflare Zaraz is a third-party tool manager that revolutionizes how websites handle external scripts by loading them in the cloud instead of the browser, dramatically improving performance, security, and user privacy."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_cr",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_cq",
+                  "text": "Overview"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_ct",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_cs",
+                  "text": "Zaraz runs on Cloudflare's global network spanning 330 cities across 125 countries, dynamically deploying third-party tools with minimal latency regardless of user location. By offloading third-party scripts from the browser to Cloudflare Workers, Zaraz eliminates the performance bottlenecks typically associated with external tools."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_cv",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_cu",
+                  "text": "Key Features"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_cy",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_cw",
+                  "text": "🚀 "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_cx",
+                  "text": "Performance Optimization",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_d1",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_cz",
+                  "text": "Cloud-based execution",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_d0",
+                  "text": ": Third-party tools run on Cloudflare's edge network, not in the browser"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_d4",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_d2",
+                  "text": "Minimal code changes",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_d3",
+                  "text": ": Speed improvements without requiring website modifications"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_d7",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_d5",
+                  "text": "Reduced browser load",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_d6",
+                  "text": ": Eliminates JavaScript execution overhead from external scripts"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_da",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_d8",
+                  "text": "Global edge deployment",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_d9",
+                  "text": ": Low latency delivery from 330+ locations worldwide"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_dd",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_db",
+                  "text": "🔒 "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_dc",
+                  "text": "Enhanced Security",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_dg",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_de",
+                  "text": "Reduced attack surface",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_df",
+                  "text": ": Limits what scripts can execute on your website"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_dj",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_dh",
+                  "text": "Third-party risk mitigation",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_di",
+                  "text": ": Protects against potential compromises in external tools"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_dm",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_dk",
+                  "text": "Controlled execution environment",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_dl",
+                  "text": ": Scripts run in isolated Cloudflare Workers"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_dp",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_dn",
+                  "text": "Security monitoring",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_do",
+                  "text": ": Built-in protection against malicious third-party behavior"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_ds",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_dq",
+                  "text": "🛡️ "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_dr",
+                  "text": "Privacy & Data Control",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_dv",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_dt",
+                  "text": "Sensitive data protection",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_du",
+                  "text": ": Alerts and masking when sensitive information is passed to vendors"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_dy",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_dw",
+                  "text": "Data flow visibility",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_dx",
+                  "text": ": Clear oversight of what data reaches third-party services"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_e1",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_dz",
+                  "text": "Privacy compliance",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_e0",
+                  "text": ": Better control over user data sharing with external tools"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_e4",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_e2",
+                  "text": "Granular permissions",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_e3",
+                  "text": ": Fine-tuned control over third-party tool capabilities"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_e6",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_e5",
+                  "text": "Technologies Used"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_e9",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_e7",
+                  "text": "Cloudflare Workers",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_e8",
+                  "text": " - Serverless execution environment"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_ec",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ea",
+                  "text": "TypeScript",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_eb",
+                  "text": " - Core scripting and integration language for Cloudflare Workers"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_ef",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ed",
+                  "text": "Go",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_ee",
+                  "text": " - Core scripting and integration language for API"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_eh",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_eg",
+                  "text": "Impact & Benefits"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_ej",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ei",
+                  "text": "For Users",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_el",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ek",
+                  "text": "Faster page load times and improved user experience"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_en",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_em",
+                  "text": "Enhanced privacy protection and data security"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_ep",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_eo",
+                  "text": "Reduced browser resource consumption"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_er",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_eq",
+                  "text": "For Developers",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_et",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_es",
+                  "text": "Simplified third-party tool management"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_ev",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_eu",
+                  "text": "No code changes required for performance gains"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_ex",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ew",
+                  "text": "Better debugging and monitoring capabilities"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_ez",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ey",
+                  "text": "Reduced security concerns with external scripts"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_f1",
+              "style": "h3",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_f0",
+                  "text": "For Businesses",
+                  "marks": [
+                    "strong"
+                  ]
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_f3",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_f2",
+                  "text": "Improved website performance metrics"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_f5",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_f4",
+                  "text": "Better compliance with privacy regulations"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_f7",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_f6",
+                  "text": "Reduced risk from third-party vulnerabilities"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_f9",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_f8",
+                  "text": "Enhanced user experience leading to better conversion rates"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_fb",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_fa",
+                  "text": "Customer Success"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_fe",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_fc",
+                  "text": "Instacart",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_fd",
+                  "text": " leveraged Zaraz to significantly improve performance of their Shopper-specific domains with minimal changes required to the overall site architecture, demonstrating the real-world impact of cloud-based third-party tool management."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_fg",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ff",
+                  "text": "Use Cases"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_fj",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_fh",
+                  "text": "E-commerce sites",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_fi",
+                  "text": " with multiple tracking and analytics tools"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_fm",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_fk",
+                  "text": "Content websites",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_fl",
+                  "text": " with advertising and social media integrations"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_fp",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_fn",
+                  "text": "SaaS applications",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_fo",
+                  "text": " requiring customer analytics and support tools"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_fs",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_fq",
+                  "text": "Marketing websites",
+                  "marks": [
+                    "strong"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_fr",
+                  "text": " with conversion tracking and lead generation tools"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_fu",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ft",
+                  "text": "What I Learned"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_fw",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_fv",
+                  "text": "Working on Zaraz highlighted the critical importance of rethinking traditional web architecture patterns. By moving third-party tool execution to the edge, we can achieve significant performance improvements while enhancing security and privacy - proving that innovative infrastructure solutions can solve multiple problems simultaneously."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_fy",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_fx",
+                  "text": "The project demonstrates how edge computing can be leveraged not just for content delivery, but for executing business-critical functionality in a more secure and performant manner."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_g0",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_fz",
+                  "text": "Links"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_g3",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_g2",
+                  "text": "Product Page",
+                  "marks": [
+                    "m_g1"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_g1",
+                  "href": "https://www.cloudflare.com/application-services/products/zaraz/"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_g6",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_g5",
+                  "text": "Blog: Zaraz Uses Workers",
+                  "marks": [
+                    "m_g4"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_g4",
+                  "href": "https://blog.cloudflare.com/zaraz-use-workers-to-make-third-party-tools-secure-and-fast"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_g9",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_g8",
+                  "text": "Developer Platform Solutions",
+                  "marks": [
+                    "m_g7"
+                  ]
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_g7",
+                  "href": "https://www.cloudflare.com/developer-platform/solutions/"
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ],
+          "technologies": [
+            "Cloudflare Workers",
+            "Edge Computing",
+            "JavaScript",
+            "Web Performance"
+          ],
+          "live_url": "https://www.cloudflare.com/application-services/products/zaraz/",
+          "start_date": "2021-01-01T00:00:00.000Z",
+          "featured": false
+        },
+        "taxonomies": {
+          "tag": [
+            "web",
+            "performance",
+            "security",
+            "privacy",
+            "cloudflare"
+          ]
+        }
+      }
+    ],
+    "recipes": [
+      {
+        "id": "masala-chai",
+        "slug": "masala-chai",
+        "status": "published",
+        "data": {
+          "title": "Masala Chai",
+          "description": "A rich and aromatic Indian spiced tea made with strong Assam tea leaves, cardamom, cinnamon, and ginger.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "b_gb",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ga",
+                  "text": "Instructions"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_gd",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_gc",
+                  "text": "Bring water to a boil in a pot. Add the tea leaves, cardamom, cinnamon, and ginger cubes."
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_gf",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_ge",
+                  "text": "Cook for 5-10 minutes until the water turns dark and you can smell the aroma of the spices."
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_gh",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_gg",
+                  "text": "Add the milk and bring to a boil. This might take another 5-10 minutes. Keep an eye on it so the milk doesn't boil over."
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_gj",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_gi",
+                  "text": "Keep stirring throughout. The heat should be medium-high (6-7 out of 10 on an electric stove)."
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_gl",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_gk",
+                  "text": "Once the milk is fully boiled and the raw taste is gone, use a sieve to pour the mixture into two cups."
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_gn",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_gm",
+                  "text": "Tips"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b_gp",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_go",
+                  "text": "For a more earthy/unique taste, use less sugar and add a bit of honey or jaggery instead."
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_gr",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_gq",
+                  "text": "Use a non-stick saucepot to avoid scrubbing. Stainless steel pots can be harder to clean."
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_gt",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_gs",
+                  "text": "Make sure the milk is properly boiled and the raw taste is gone. You'll know it's ready when you see bubbles and the milk begins to rise in the pot rapidly — be careful and reduce the heat at this point."
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_gy",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_gu",
+                  "text": "Use "
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_gw",
+                  "text": "this tea",
+                  "marks": [
+                    "m_gv"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "s_gx",
+                  "text": "."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "m_gv",
+                  "href": "https://www.amazon.co.uk/dp/B083JKSTRT?ref=nb_sb_ss_w_as-reorder_k0_1_7&amp=&crid=33T2YRIZ0DDRG&amp=&sprefix=tea+tat"
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b_h0",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "s_gz",
+                  "text": "Use a tea infuser to hold the tea leaves — it makes cleanup much easier since you can just lift it out instead of straining."
+                }
+              ],
+              "listItem": "number",
+              "level": 1
+            }
+          ],
+          "cover_image": {
+            "$media": {
+              "url": "https://raw.githubusercontent.com/omarmosid/omarmo.com/8b8a1f1e55b05745adc2ab57b2a279f6930b2438/src/content/recipe/masala-chai/chai.jpg",
+              "alt": "A cup of masala chai",
+              "filename": "chai.jpg"
+            }
+          },
+          "publish_date": "2026-02-25T00:00:00.000Z",
+          "prep_time": "5 mins",
+          "cook_time": "15-20 mins",
+          "servings": 2,
+          "ingredients": [
+            "250ml whole or semi-skimmed milk",
+            "250ml water",
+            "2.5 spoons black tea leaves (Tata Tea or any strong Assam tea)",
+            "2-3 teaspoons sugar",
+            "1 teaspoon ground cardamom (if unavailable, crush 4-5 whole cardamom pods in a mortar and pestle)",
+            "1/2 teaspoon ground cinnamon",
+            "1-2 frozen ginger cubes (cut fresh ginger into small cubes and freeze)",
+            "50ml evaporated milk (optional, for a thicker consistency)"
+          ],
+          "cuisine": "Indian"
+        },
+        "taxonomies": {
+          "tag": [
+            "indian",
+            "tea",
+            "drinks"
+          ]
+        }
+      }
+    ]
+  }
+}

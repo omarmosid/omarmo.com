@@ -1,19 +1,21 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
+export const prerender = false;
+
+import { getEmDashEntry } from 'emdash';
+import { PortableText } from 'emdash/ui';
 import ContentHeader from '../../components/ContentHeader.astro';
+import { asDate, readingTimeFromPortableText, setContentCache, type NoteData } from '../../lib/emdash-content';
 import Base from '../../layouts/Base.astro';
 
-export async function getStaticPaths() {
-	const notes = await getCollection('note');
-	return notes.map((note) => ({ params: { slug: note.id }, props: { note } }));
-}
+setContentCache(Astro.response);
 
-interface Props {
-	note: CollectionEntry<'note'>;
-}
+const slug = Astro.params.slug;
+if (!slug) return new Response(null, { status: 404 });
 
-const { note } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(note);
+const { entry: note, error } = await getEmDashEntry<NoteData>('notes', slug);
+if (error) return new Response('Failed to load note', { status: 500 });
+if (!note) return new Response(null, { status: 404 });
+const readingTime = readingTimeFromPortableText(note.data.content);
 ---
 
 <Base title={note.data.title} description={note.data.description ?? note.data.title}>
@@ -22,11 +24,11 @@ const { Content, remarkPluginFrontmatter } = await render(note);
 			kicker="Note"
 			title={note.data.title}
 			description={note.data.description}
-			date={note.data.publishDate}
-			readingTime={remarkPluginFrontmatter.minutesRead}
+			date={asDate(note.data.publish_date)}
+			readingTime={readingTime}
 		/>
 		<div class="prose-site">
-			<Content />
+			<PortableText value={note.data.content} />
 		</div>
 	</article>
 </Base>

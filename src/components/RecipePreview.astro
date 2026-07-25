@@ -1,24 +1,24 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import { entrySlug, type RecipeEntry } from '../lib/emdash-content';
 import FormattedDate from './FormattedDate.astro';
 
 interface Props {
-	recipe: CollectionEntry<'recipe'>;
+	recipe: RecipeEntry;
 }
 
 const { recipe } = Astro.props;
-const slug = recipe.id.replace(/\/index$/, '');
+const slug = entrySlug(recipe);
 ---
 
 <article class="rounded-2xl border border-border bg-surface-raised p-5 shadow-sm">
 	<a class="block no-underline" href={`/recipes/${slug}/`}>
-		<p class="mb-2 text-sm text-muted"><FormattedDate date={recipe.data.publishDate} /></p>
+		<p class="mb-2 text-sm text-muted"><FormattedDate date={recipe.data.publish_date} /></p>
 		<h2 class="text-xl font-bold tracking-tight text-content hover:text-accent">{recipe.data.title}</h2>
 		<p class="mt-2 text-muted">{recipe.data.description}</p>
 	</a>
 	<div class="mt-4 flex flex-wrap gap-2 text-xs font-medium text-muted">
-		{recipe.data.prepTime && <span class="rounded-full bg-surface-subtle px-2.5 py-1">Prep {recipe.data.prepTime}</span>}
-		{recipe.data.cookTime && <span class="rounded-full bg-surface-subtle px-2.5 py-1">Cook {recipe.data.cookTime}</span>}
+		{recipe.data.prep_time && <span class="rounded-full bg-surface-subtle px-2.5 py-1">Prep {recipe.data.prep_time}</span>}
+		{recipe.data.cook_time && <span class="rounded-full bg-surface-subtle px-2.5 py-1">Cook {recipe.data.cook_time}</span>}
 		{recipe.data.servings && <span class="rounded-full bg-surface-subtle px-2.5 py-1">Serves {recipe.data.servings}</span>}
 	</div>
 </article>

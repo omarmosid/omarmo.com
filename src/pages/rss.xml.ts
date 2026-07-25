@@ -1,10 +1,15 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getEmDashCollection } from 'emdash';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { asDate, entrySlug, type PostEntry } from '../lib/emdash-content';
+
+export const prerender = false;
 
 export async function GET(context: { site: URL }) {
-	const posts = (await getCollection('post', ({ data }) => !data.draft)).sort(
-		(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+	const { entries, error } = await getEmDashCollection('posts', { status: 'published' });
+	if (error) return new Response('Failed to load feed', { status: 500 });
+	const posts = (entries as PostEntry[]).sort(
+		(a, b) => (asDate(b.data.publish_date)?.valueOf() ?? 0) - (asDate(a.data.publish_date)?.valueOf() ?? 0),
 	);
 
 	return rss({
@@ -14,8 +19,8 @@ export async function GET(context: { site: URL }) {
 		items: posts.map((post) => ({
 			title: post.data.title,
 			description: post.data.description,
-			pubDate: post.data.publishDate,
-			link: `/posts/${post.id.replace(/\/index$/, '')}/`,
+			pubDate: asDate(post.data.publish_date),
+			link: `/posts/${entrySlug(post)}/`,
 		})),
 	});
 }

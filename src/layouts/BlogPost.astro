@@ -1,25 +1,27 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
+import { getEntryTerms } from 'emdash';
 import ContentHeader from '../components/ContentHeader.astro';
 import TagList from '../components/TagList.astro';
+import { asDate, mediaAlt, mediaUrl, type PostEntry } from '../lib/emdash-content';
 import Base from './Base.astro';
 
 interface Props {
-	post: CollectionEntry<'post'>;
+	post: PostEntry;
 	readingTime?: string;
 }
 
 const { post, readingTime } = Astro.props;
-const { coverImage, description, publishDate, tags, title, updatedDate } = post.data;
+const { cover_image, description, publish_date, title, updated_date } = post.data;
+const coverUrl = mediaUrl(cover_image);
+const tags = await getEntryTerms('posts', post.id, 'tag');
 ---
 
-<Base title={title} description={description} image={coverImage?.src}>
+<Base title={title} description={description} image={coverUrl}>
 	<article>
-		<ContentHeader kicker="Post" title={title} description={description} date={publishDate} readingTime={readingTime} updatedDate={updatedDate}>
+		<ContentHeader kicker="Post" title={title} description={description} date={asDate(publish_date)} readingTime={readingTime} updatedDate={asDate(updated_date)}>
 			<TagList slot="meta" tags={tags} />
 		</ContentHeader>
-		{coverImage && <Image class="mb-10 rounded-2xl" src={coverImage.src} alt={coverImage.alt} width={1200} height={630} />}
+		{coverUrl && <img class="mb-10 rounded-2xl" src={coverUrl} alt={mediaAlt(cover_image)} width={1200} height={630} loading="lazy" decoding="async" />}
 		<div class="prose-site">
 			<slot />
 		</div>

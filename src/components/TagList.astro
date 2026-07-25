@@ -2,17 +2,18 @@
 import Chip from './Chip.astro';
 
 interface Props {
-	tags: string[];
+	tags: Array<string | { slug: string; label?: string }>;
 }
 
 const { tags } = Astro.props;
+const normalizedTags = tags.map((tag) => (typeof tag === 'string' ? { slug: tag, label: tag } : tag));
 ---
 
 {
-	tags.length > 0 && (
+	normalizedTags.length > 0 && (
 		<div class="flex flex-wrap gap-2">
-			{tags.map((tag) => (
-				<Chip href={`/tags/${tag}/`}>#{tag}</Chip>
+			{normalizedTags.map((tag) => (
+				<Chip href={`/tags/${tag.slug}/`}>#{tag.label ?? tag.slug}</Chip>
 			))}
 		</div>
 	)

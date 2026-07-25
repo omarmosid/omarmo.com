@@ -17,6 +17,11 @@ pnpm-debug.log*
 .env
 .env.production
 
+# EmDash local development
+data.db*
+uploads/
+emdash-env.d.ts
+
 # macOS-specific files
 .DS_Store
 

@@ -5,9 +5,9 @@ interface Props {
 	title: string;
 	description?: string;
 	kicker: string;
-	date?: Date;
+	date?: Date | string;
 	readingTime?: string;
-	updatedDate?: Date;
+	updatedDate?: Date | string;
 }
 
 const { date, description, kicker, readingTime, title, updatedDate } = Astro.props;

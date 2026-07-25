@@ -1,20 +1,22 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
+export const prerender = false;
+
+import { getEmDashEntry } from 'emdash';
+import { PortableText } from 'emdash/ui';
 import ProjectPost from '../../layouts/ProjectPost.astro';
+import { readingTimeFromPortableText, setContentCache, type ProjectData } from '../../lib/emdash-content';
 
-export async function getStaticPaths() {
-	const projects = await getCollection('project', ({ data }) => import.meta.env.DEV || !data.draft);
-	return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
-}
+setContentCache(Astro.response);
 
-interface Props {
-	project: CollectionEntry<'project'>;
-}
+const slug = Astro.params.slug;
+if (!slug) return new Response(null, { status: 404 });
 
-const { project } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(project);
+const { entry: project, error } = await getEmDashEntry<ProjectData>('projects', slug);
+if (error) return new Response('Failed to load project', { status: 500 });
+if (!project) return new Response(null, { status: 404 });
+const readingTime = readingTimeFromPortableText(project.data.content);
 ---
 
-<ProjectPost project={project} readingTime={remarkPluginFrontmatter.minutesRead}>
-	<Content />
+<ProjectPost project={project} readingTime={readingTime}>
+	<PortableText value={project.data.content} />
 </ProjectPost>

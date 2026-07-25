@@ -5,34 +5,43 @@
 	"engines": {
 		"node": ">=22.12.0"
 	},
+	"emdash": {
+		"seed": ".emdash/seed.json"
+	},
 	"scripts": {
 		"dev": "astro dev",
-		"build": "astro build",
-		"preview": "astro build && astro preview",
+		"build": "EMDASH_TARGET=cloudflare astro build",
+		"preview": "npm run build && astro preview",
 		"astro": "astro",
 		"generate-types": "wrangler types",
-		"deploy": "astro build && wrangler deploy",
+		"deploy": "EMDASH_TARGET=cloudflare astro build && wrangler deploy",
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
 		"@astrojs/cloudflare": "^14.1.4",
-		"@astrojs/markdown-remark": "^7.2.1",
-		"@astrojs/mdx": "^7.0.3",
+		"@astrojs/node": "^11.0.2",
+		"@astrojs/react": "^6.0.1",
 		"@astrojs/rss": "^4.0.19",
 		"@astrojs/sitemap": "^3.7.3",
+		"@cloudflare/workers-types": "^4.20260702.1",
+		"@emdash-cms/auth-atproto": "^0.2.30",
+		"@emdash-cms/cloudflare": "^0.31.0",
 		"@fontsource/rubik": "^5.3.0",
 		"@tailwindcss/typography": "^0.5.20",
 		"@tailwindcss/vite": "^4.3.3",
 		"astro": "^7.1.3",
-		"mdast-util-to-string": "^4.0.0",
+		"emdash": "^0.31.0",
+		"kysely": "^0.29.4",
+		"pg": "^8.22.0",
 		"phosphor-astro": "^2.1.0",
+		"react": "^19.2.8",
+		"react-dom": "^19.2.8",
 		"reading-time": "^1.5.0",
-		"rehype-autolink-headings": "^7.1.0",
-		"rehype-slug": "^6.0.0",
 		"sharp": "^0.35.3",
 		"tailwindcss": "^4.3.3"
 	},
 	"devDependencies": {
+		"better-sqlite3": "^13.0.1",
 		"wrangler": "4.97.0"
 	}
 }

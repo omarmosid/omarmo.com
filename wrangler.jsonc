@@ -1,12 +1,32 @@
 {
 	"compatibility_date": "2026-06-02",
-	"compatibility_flags": ["global_fetch_strictly_public"],
+	"compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
 	"name": "omarmo-com",
+	"account_id": "d4a55165ba5ec426089bd63e723ec25e",
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
 		"directory": "./dist",
 		"binding": "ASSETS"
 	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "emdash-db",
+			"database_id": "9dd89423-ad09-4e32-a8e9-1e0babfd8b99"
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "MEDIA",
+			"bucket_name": "emdash-media"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "SESSION",
+			"id": "7b8e75ff3dcf421fb7315bb0073a1194"
+		}
+	],
 	"observability": {
 		"enabled": true
 	}

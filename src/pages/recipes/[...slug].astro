@@ -1,23 +1,22 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
+export const prerender = false;
+
+import { getEmDashEntry } from 'emdash';
+import { PortableText } from 'emdash/ui';
 import RecipePost from '../../layouts/RecipePost.astro';
+import { readingTimeFromPortableText, setContentCache, type RecipeData } from '../../lib/emdash-content';
 
-export async function getStaticPaths() {
-	const recipes = await getCollection('recipe', ({ data }) => import.meta.env.DEV || !data.draft);
-	return recipes.map((recipe) => ({
-		params: { slug: recipe.id.replace(/\/index$/, '') },
-		props: { recipe },
-	}));
-}
+setContentCache(Astro.response);
 
-interface Props {
-	recipe: CollectionEntry<'recipe'>;
-}
+const slug = Astro.params.slug;
+if (!slug) return new Response(null, { status: 404 });
 
-const { recipe } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(recipe);
+const { entry: recipe, error } = await getEmDashEntry<RecipeData>('recipes', slug);
+if (error) return new Response('Failed to load recipe', { status: 500 });
+if (!recipe) return new Response(null, { status: 404 });
+const readingTime = readingTimeFromPortableText(recipe.data.content);
 ---
 
-<RecipePost recipe={recipe} readingTime={remarkPluginFrontmatter.minutesRead}>
-	<Content />
+<RecipePost recipe={recipe} readingTime={readingTime}>
+	<PortableText value={recipe.data.content} />
 </RecipePost>

@@ -1,10 +1,17 @@
 ---
-import { getCollection } from 'astro:content';
+export const prerender = false;
+
+import { getEmDashCollection } from 'emdash';
 import ProjectPreview from '../../components/ProjectPreview.astro';
+import { asDate, setContentCache, type ProjectEntry } from '../../lib/emdash-content';
 import Base from '../../layouts/Base.astro';
 
-const projects = (await getCollection('project', ({ data }) => import.meta.env.DEV || !data.draft)).sort(
-	(a, b) => Number(b.data.featured) - Number(a.data.featured) || b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+setContentCache(Astro.response);
+
+const { entries, error } = await getEmDashCollection('projects', { status: 'published' });
+if (error) return new Response('Failed to load projects', { status: 500 });
+const projects = (entries as ProjectEntry[]).sort(
+	(a, b) => Number(b.data.featured) - Number(a.data.featured) || (asDate(b.data.start_date)?.valueOf() ?? 0) - (asDate(a.data.start_date)?.valueOf() ?? 0),
 );
 ---
 

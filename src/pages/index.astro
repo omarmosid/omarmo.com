@@ -1,18 +1,25 @@
 ---
-import { getCollection } from "astro:content";
+export const prerender = false;
+
+import { getEmDashCollection } from "emdash";
 import NotePreview from "../components/NotePreview.astro";
 import PostPreview from "../components/PostPreview.astro";
+import { asDate, setContentCache, type NoteEntry, type PostEntry } from "../lib/emdash-content";
 import SocialList from "../components/SocialList.astro";
 import Base from "../layouts/Base.astro";
 
-const posts = (
-  await getCollection("post", ({ data }) => import.meta.env.DEV || !data.draft)
-)
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+setContentCache(Astro.response);
+
+const postsResult = await getEmDashCollection("posts", { status: "published" });
+if (postsResult.error) return new Response("Failed to load posts", { status: 500 });
+const posts = (postsResult.entries as PostEntry[])
+  .sort((a, b) => (asDate(b.data.publish_date)?.valueOf() ?? 0) - (asDate(a.data.publish_date)?.valueOf() ?? 0))
   .slice(0, 3);
 
-const notes = (await getCollection("note"))
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+const notesResult = await getEmDashCollection("notes", { status: "published" });
+if (notesResult.error) return new Response("Failed to load notes", { status: 500 });
+const notes = (notesResult.entries as NoteEntry[])
+  .sort((a, b) => (asDate(b.data.publish_date)?.valueOf() ?? 0) - (asDate(a.data.publish_date)?.valueOf() ?? 0))
   .slice(0, 2);
 ---
 

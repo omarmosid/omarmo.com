@@ -1,29 +1,29 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
 import Chip from '../components/Chip.astro';
 import ContentHeader from '../components/ContentHeader.astro';
+import { asDate, mediaAlt, mediaUrl, type RecipeEntry } from '../lib/emdash-content';
 import Base from './Base.astro';
 
 interface Props {
-	recipe: CollectionEntry<'recipe'>;
+	recipe: RecipeEntry;
 	readingTime?: string;
 }
 
 const { recipe, readingTime } = Astro.props;
-const { cookTime, coverImage, description, ingredients, prepTime, publishDate, servings, title } = recipe.data;
+const { cook_time, cover_image, description, ingredients = [], prep_time, publish_date, servings, title } = recipe.data;
+const coverUrl = mediaUrl(cover_image);
 ---
 
-<Base title={title} description={description} image={coverImage?.src}>
+<Base title={title} description={description} image={coverUrl}>
 	<article>
-		<ContentHeader kicker="Recipe" title={title} description={description} date={publishDate} readingTime={readingTime}>
+		<ContentHeader kicker="Recipe" title={title} description={description} date={asDate(publish_date)} readingTime={readingTime}>
 			<div slot="meta" class="flex flex-wrap gap-2">
-				{prepTime && <Chip>Prep {prepTime}</Chip>}
-				{cookTime && <Chip>Cook {cookTime}</Chip>}
+				{prep_time && <Chip>Prep {prep_time}</Chip>}
+				{cook_time && <Chip>Cook {cook_time}</Chip>}
 				{servings && <Chip>Serves {servings}</Chip>}
 			</div>
 		</ContentHeader>
-		{coverImage && <Image class="mb-10 rounded-2xl" src={coverImage.src} alt={coverImage.alt} width={1200} height={630} />}
+		{coverUrl && <img class="mb-10 rounded-2xl" src={coverUrl} alt={mediaAlt(cover_image)} width={1200} height={630} loading="lazy" decoding="async" />}
 		{ingredients.length > 0 && <section class="mb-10 rounded-2xl border border-border bg-surface-raised p-5"><h2 class="mb-3 text-xl font-bold">Ingredients</h2><ul class="list-disc space-y-1 pl-5 text-content">{ingredients.map((ingredient) => <li>{ingredient}</li>)}</ul></section>}
 		<div class="prose-site">
 			<slot />

@@ -22,7 +22,7 @@ export default defineConfig({
     react(),
     sitemap(),
     emdash({
-      siteUrl: 'https://omarmo.com',
+      siteUrl: isCloudflareBuild ? 'https://omarmo.com' : undefined,
       database: isCloudflareBuild ? d1({ binding: 'DB' }) : sqlite({ url: 'file:./data.db' }),
       storage: isCloudflareBuild
         ? r2({ binding: 'MEDIA' })

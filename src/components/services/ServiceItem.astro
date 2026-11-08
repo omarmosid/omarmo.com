@@ -1,0 +1,14 @@
+---
+import type { Service } from '../../lib/services';
+
+interface Props {
+	service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<li>
+	<h2 class="text-xl font-bold tracking-tight text-content">{service.title}</h2>
+	<p class="mt-2 text-pretty text-muted">{service.description}</p>
+</li>

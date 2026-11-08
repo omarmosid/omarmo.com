@@ -1,17 +1,22 @@
 ---
 export const prerender = true;
 
+import PageHeader from '../components/ui/PageHeader.astro';
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="About" description="About Omar Mo">
-	<h1 class="text-4xl font-bold tracking-tight text-content sm:text-5xl">About</h1>
-	<div class="prose-site mt-8">
+<Base title="About" description="About Omar Mo, a software engineer helping small teams use AI in practical ways.">
+	<PageHeader title="About" />
+	<div class="prose-site">
 		<p>
-			I am a self-taught full-stack engineer who likes building useful products, writing about software and work, and keeping a small personal corner of the web.
+			I'm a self-taught software engineer. I've spent the last few years building developer tools and web products used
+			across the web.
 		</p>
 		<p>
-			This site collects my writing, projects, notes, and recipes. It is intentionally simple while I migrate away from the old template and rebuild the design properly.
+			These days most of my attention is on AI: what it's good at, where it falls over, and how small teams can use it
+			without a big budget. I wrote about how I think about it in
+			<a href="/posts/solve-problems/"><em>Don't write code. Solve problems.</em></a>
 		</p>
+		<p>Outside work I read a lot of historical fiction and play more RPGs than I should.</p>
 	</div>
 </Base>

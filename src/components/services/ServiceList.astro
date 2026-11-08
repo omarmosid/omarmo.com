@@ -1,0 +1,8 @@
+---
+import { SERVICES } from '../../lib/services';
+import ServiceItem from './ServiceItem.astro';
+---
+
+<ul class="grid max-w-2xl gap-10">
+	{SERVICES.map((service) => <ServiceItem service={service} />)}
+</ul>

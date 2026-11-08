@@ -1,0 +1,15 @@
+---
+import { SITE_AUTHOR, SITE_URL, SOCIAL_LINKS } from '../../consts';
+
+/** schema.org Person data so search engines can connect the site to its author and profiles. */
+const person = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: SITE_AUTHOR,
+	url: SITE_URL,
+	jobTitle: 'AI Consultant',
+	sameAs: SOCIAL_LINKS.map((link) => link.href),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(person)} />

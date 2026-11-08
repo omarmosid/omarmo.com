@@ -1,0 +1,37 @@
+---
+/**
+ * Call-to-action element. Renders an `<a>` when `href` is given, otherwise a `<button>`.
+ *
+ * - `primary`: filled accent pill, matching the shape of the social links.
+ * - `link`: plain accent text with a trailing arrow, for secondary actions.
+ */
+interface Props {
+	href?: string;
+	type?: 'button' | 'submit';
+	variant?: 'primary' | 'link';
+}
+
+const { href, type = 'button', variant = 'primary' } = Astro.props;
+
+const VARIANT_CLASSES = {
+	primary:
+		'rounded-full bg-accent px-5 py-2.5 text-surface hover:bg-accent-hover hover:text-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+	link: 'text-accent hover:text-accent-hover',
+} as const;
+
+const classes = ['inline-flex items-center gap-1 text-sm font-medium no-underline transition-colors', VARIANT_CLASSES[variant]];
+---
+
+{
+	href ? (
+		<a class:list={classes} href={href}>
+			<slot />
+			{variant === 'link' && <span aria-hidden="true">→</span>}
+		</a>
+	) : (
+		<button class:list={[classes, 'cursor-pointer']} type={type}>
+			<slot />
+			{variant === 'link' && <span aria-hidden="true">→</span>}
+		</button>
+	)
+}

@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { CONTROL_CLASSES } from './styles';
+
+/** Multi-line text input with the same styling as `TextInput`. */
+interface Props extends Omit<HTMLAttributes<'textarea'>, 'class'> {
+	id: string;
+	name: string;
+}
+
+const { rows = 6, ...attributes } = Astro.props;
+---
+
+<textarea class:list={[CONTROL_CLASSES, 'resize-y']} rows={rows} {...attributes}></textarea>

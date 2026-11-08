@@ -1,0 +1,33 @@
+---
+import { SOCIAL_LINKS } from '../../consts';
+import type { ContactStatus } from '../../lib/contact/config';
+
+/** Feedback shown after a submission. `sent` replaces the form; `error` sits above it. */
+interface Props {
+	status: ContactStatus;
+}
+
+const { status } = Astro.props;
+const linkedIn = SOCIAL_LINKS.find((link) => link.label === 'LinkedIn');
+---
+
+{
+	status === 'sent' ? (
+		<p class="text-lg text-content" role="status">
+			Thanks, got it. I'll be in touch soon.
+		</p>
+	) : (
+		<p class="mb-8 rounded-lg border border-border bg-surface-subtle px-4 py-3 text-muted" role="alert">
+			Something went wrong.
+			{linkedIn && (
+				<>
+					You can also reach me on{' '}
+					<a class="text-accent" href={linkedIn.href} rel="noreferrer" target="_blank">
+						LinkedIn
+					</a>
+					.
+				</>
+			)}
+		</p>
+	)
+}

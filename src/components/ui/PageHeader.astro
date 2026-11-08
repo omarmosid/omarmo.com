@@ -1,0 +1,14 @@
+---
+/** Title and optional one-line intro for simple, non-CMS pages. Mirrors the list-page headers. */
+interface Props {
+	title: string;
+	intro?: string;
+}
+
+const { title, intro } = Astro.props;
+---
+
+<header class="mb-10">
+	<h1 class="text-4xl font-bold tracking-tight text-content sm:text-5xl">{title}</h1>
+	{intro && <p class="mt-4 max-w-2xl text-lg text-pretty text-muted">{intro}</p>}
+</header>

@@ -1,0 +1,59 @@
+---
+import { CONTACT_FIELDS, CONTACT_LIMITS } from '../../lib/contact/config';
+import Button from '../ui/Button.astro';
+import Field from '../ui/form/Field.astro';
+import Honeypot from '../ui/form/Honeypot.astro';
+import TextArea from '../ui/form/TextArea.astro';
+import TextInput from '../ui/form/TextInput.astro';
+import Turnstile from './Turnstile.astro';
+
+/** Contact form. Posts natively to the API route, which redirects back with a status. */
+interface Props {
+	turnstileSiteKey?: string;
+}
+
+const { turnstileSiteKey } = Astro.props;
+---
+
+<form class="grid max-w-xl gap-6" action="/api/contact" method="post">
+	<Field id="contact-name" label="Name">
+		<TextInput
+			id="contact-name"
+			name={CONTACT_FIELDS.name}
+			autocomplete="name"
+			maxlength={CONTACT_LIMITS.name}
+			required
+		/>
+	</Field>
+
+	<Field id="contact-email" label="Email">
+		<TextInput
+			id="contact-email"
+			name={CONTACT_FIELDS.email}
+			type="email"
+			autocomplete="email"
+			maxlength={CONTACT_LIMITS.email}
+			required
+		/>
+	</Field>
+
+	<Field id="contact-company" label="Company" optional>
+		<TextInput
+			id="contact-company"
+			name={CONTACT_FIELDS.company}
+			autocomplete="organization"
+			maxlength={CONTACT_LIMITS.company}
+		/>
+	</Field>
+
+	<Field id="contact-message" label="Message">
+		<TextArea id="contact-message" name={CONTACT_FIELDS.message} maxlength={CONTACT_LIMITS.message} required />
+	</Field>
+
+	<Honeypot name={CONTACT_FIELDS.honeypot} />
+	<Turnstile siteKey={turnstileSiteKey} />
+
+	<div>
+		<Button type="submit">Send message</Button>
+	</div>
+</form>

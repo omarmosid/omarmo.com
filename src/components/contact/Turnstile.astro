@@ -1,0 +1,21 @@
+---
+/**
+ * Cloudflare Turnstile widget. The script injects a hidden `cf-turnstile-response`
+ * input into the enclosing form, which the server verifies.
+ * Renders nothing when no site key is configured.
+ */
+interface Props {
+	siteKey?: string;
+}
+
+const { siteKey } = Astro.props;
+---
+
+{
+	siteKey && (
+		<>
+			<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
+			<div class="cf-turnstile" data-sitekey={siteKey} data-theme="auto" />
+		</>
+	)
+}

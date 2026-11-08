@@ -1,0 +1,27 @@
+---
+export const prerender = true;
+
+import ServiceList from '../components/services/ServiceList.astro';
+import Button from '../components/ui/Button.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+	title="Work with me"
+	description="How Omar Mo helps startups and small businesses with AI: building, advising and teaching."
+>
+	<PageHeader
+		title="Work with me"
+		intro="I work with small teams who want to use AI but aren't sure where to start, or who tried and got stuck."
+	/>
+
+	<ServiceList />
+
+	<section class="mt-16 border-t border-border pt-10">
+		<p class="text-lg text-muted">If any of this sounds useful, tell me what you're working on.</p>
+		<div class="mt-6">
+			<Button href="/contact/">Get in touch</Button>
+		</div>
+	</section>
+</Base>

@@ -1,0 +1,15 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { CONTROL_CLASSES } from './styles';
+
+/** Single-line text input. Native attributes (`required`, `maxlength`, `autocomplete`…) pass through. */
+interface Props extends Omit<HTMLAttributes<'input'>, 'class' | 'type'> {
+	id: string;
+	name: string;
+	type?: 'text' | 'email';
+}
+
+const { type = 'text', ...attributes } = Astro.props;
+---
+
+<input class={CONTROL_CLASSES} type={type} {...attributes} />

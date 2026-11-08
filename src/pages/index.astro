@@ -2,10 +2,10 @@
 export const prerender = false;
 
 import { getEmDashCollection } from "emdash";
-import NotePreview from "../components/NotePreview.astro";
+import Hero from "../components/home/Hero.astro";
+import PersonSchema from "../components/home/PersonSchema.astro";
 import PostPreview from "../components/PostPreview.astro";
-import { asDate, setContentCache, type NoteEntry, type PostEntry } from "../lib/emdash-content";
-import SocialList from "../components/SocialList.astro";
+import { asDate, setContentCache, type PostEntry } from "../lib/emdash-content";
 import Base from "../layouts/Base.astro";
 
 setContentCache(Astro.response);
@@ -15,55 +15,20 @@ if (postsResult.error) return new Response("Failed to load posts", { status: 500
 const posts = (postsResult.entries as PostEntry[])
   .sort((a, b) => (asDate(b.data.publish_date)?.valueOf() ?? 0) - (asDate(a.data.publish_date)?.valueOf() ?? 0))
   .slice(0, 3);
-
-const notesResult = await getEmDashCollection("notes", { status: "published" });
-if (notesResult.error) return new Response("Failed to load notes", { status: 500 });
-const notes = (notesResult.entries as NoteEntry[])
-  .sort((a, b) => (asDate(b.data.publish_date)?.valueOf() ?? 0) - (asDate(a.data.publish_date)?.valueOf() ?? 0))
-  .slice(0, 2);
 ---
 
 <Base>
-  <section class="max-w-2xl">
-    <h1 class="text-4xl font-bold tracking-tight text-content sm:text-6xl">
-      Hi, I'm Omar.
-    </h1>
-    <p class="mt-6 text-lg leading-8 text-muted">
-      I am a self-taught full-stack engineer passionate about building products
-      that delight users. I also thoroughly enjoy reading historical fiction and
-      playing role-playing games.
-    </p>
-    <div class="mt-6">
-      <SocialList />
-    </div>
-  </section>
+  <PersonSchema slot="head" />
 
-  <section class="mt-16">
+  <Hero />
+
+  <section class="mt-20">
     <div class="mb-6 flex items-end justify-between gap-4">
       <h2 class="text-2xl font-bold tracking-tight">Latest posts</h2>
-      <a class="text-sm font-medium text-accent" href="/posts/">All posts</a
-      >
+      <a class="text-sm font-medium text-accent" href="/posts/">All posts</a>
     </div>
     <div class="grid gap-5">
       {posts.map((post) => <PostPreview post={post} />)}
     </div>
   </section>
-
-  {
-    notes.length > 0 && (
-      <section class="mt-16">
-        <div class="mb-6 flex items-end justify-between gap-4">
-          <h2 class="text-2xl font-bold tracking-tight">Notes</h2>
-          <a class="text-sm font-medium text-accent" href="/notes/">
-            All notes
-          </a>
-        </div>
-        <div class="grid gap-5">
-          {notes.map((note) => (
-            <NotePreview note={note} />
-          ))}
-        </div>
-      </section>
-    )
-  }
 </Base>

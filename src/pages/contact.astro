@@ -1,0 +1,25 @@
+---
+// Rendered per request: reads the submission status from the URL and Turnstile key from the Worker env.
+export const prerender = false;
+
+import ContactForm from '../components/contact/ContactForm.astro';
+import ContactStatus from '../components/contact/ContactStatus.astro';
+import PageHeader from '../components/ui/PageHeader.astro';
+import { getTurnstileKeys } from '../lib/contact/turnstile';
+import { getWorkerEnv } from '../lib/env';
+import Base from '../layouts/Base.astro';
+
+const params = Astro.url.searchParams;
+const status = params.has('sent') ? 'sent' : params.has('error') ? 'error' : undefined;
+const { siteKey } = getTurnstileKeys(await getWorkerEnv());
+---
+
+<Base title="Contact" description="Get in touch with Omar Mo about AI for your team or business.">
+	<PageHeader
+		title="Contact"
+		intro="Tell me a bit about what you're working on. I read everything and usually reply within a few days."
+	/>
+
+	{status && <ContactStatus status={status} />}
+	{status !== 'sent' && <ContactForm turnstileSiteKey={siteKey} />}
+</Base>

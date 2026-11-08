@@ -18,6 +18,8 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, image } = Astro.prop
 <html lang="en-GB">
 	<head>
 		<BaseHead title={title} description={description} image={image} />
+		<!-- Page-specific head content, e.g. structured data or third-party scripts. -->
+		<slot name="head" />
 	</head>
 	<body class="flex min-h-screen flex-col">
 		<Header />

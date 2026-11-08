@@ -1,13 +1,23 @@
 export const SITE_TITLE = 'Omar Mo';
-export const SITE_DESCRIPTION = 'Personal website, writing, projects, notes, and recipes from Omar Mo.';
+export const SITE_DESCRIPTION =
+	'Omar Mo helps startups and small businesses use AI in practical ways: building, advising and training.';
 export const SITE_URL = 'https://omarmo.com';
 export const SITE_AUTHOR = 'Omar Mo';
+export const TWITTER_HANDLE = '@omarmosid';
 
+/** Primary navigation, shown in the header. Kept short and professional. */
 export const MENU_LINKS = [
 	{ href: '/', label: 'Home' },
-	{ href: '/now/', label: 'Now' },
+	{ href: '/work-with-me/', label: 'Work with me' },
 	{ href: '/posts/', label: 'Posts' },
-	{ href: '/projects/', label: 'Projects' },
+	{ href: '/about/', label: 'About' },
+	{ href: '/contact/', label: 'Contact' },
+] as const;
+
+/** Footer navigation: everything in the header plus the personal pages. */
+export const FOOTER_LINKS = [
+	...MENU_LINKS,
+	{ href: '/now/', label: 'Now' },
 	{ href: '/notes/', label: 'Notes' },
 	{ href: '/recipes/', label: 'Recipes' },
 ] as const;

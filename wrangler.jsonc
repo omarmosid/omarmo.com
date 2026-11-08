@@ -32,6 +32,11 @@
 			"name": "EMAIL"
 		}
 	],
+	"vars": {
+		// Public Turnstile site key. Empty disables the widget.
+		// The secret is set separately: `wrangler secret put TURNSTILE_SECRET_KEY`.
+		"TURNSTILE_SITE_KEY": ""
+	},
 	"observability": {
 		"enabled": true
 	}

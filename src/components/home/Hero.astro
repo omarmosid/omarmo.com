@@ -1,0 +1,19 @@
+---
+import SocialList from '../SocialList.astro';
+import Button from '../ui/Button.astro';
+---
+
+<section class="max-w-2xl">
+	<h1 class="text-4xl font-bold tracking-tight text-content sm:text-6xl">Hi, I'm Omar.</h1>
+	<p class="mt-6 text-lg leading-8 text-pretty text-muted">
+		I'm a software engineer who helps startups and small businesses figure out where AI is actually useful, and then
+		build it.
+	</p>
+	<div class="mt-8 flex flex-wrap items-center gap-6">
+		<Button href="/work-with-me/">Work with me</Button>
+		<Button href="/contact/" variant="link">Get in touch</Button>
+	</div>
+	<div class="mt-8">
+		<SocialList />
+	</div>
+</section>

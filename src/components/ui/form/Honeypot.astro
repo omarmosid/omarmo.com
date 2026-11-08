@@ -1,0 +1,18 @@
+---
+/**
+ * Spam trap. Hidden from people and assistive tech, but naive bots fill every field.
+ * The server treats a non-empty value as spam and silently drops the submission.
+ */
+interface Props {
+	name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<div class="sr-only" aria-hidden="true">
+	<label>
+		Leave this field empty
+		<input type="text" name={name} tabindex="-1" autocomplete="off" />
+	</label>
+</div>

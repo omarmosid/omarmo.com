@@ -17,13 +17,17 @@ const tags = await getEntryTerms('posts', post.id, 'tag');
 ---
 
 <Base title={title} description={description} image={coverUrl}>
-	<article>
+	{/* max-w-2xl keeps lines to a comfortable ~70 characters at the larger reading size. */}
+	<article class="max-w-2xl">
 		<ContentHeader kicker="Post" title={title} description={description} date={asDate(publish_date)} readingTime={readingTime} updatedDate={asDate(updated_date)}>
 			<TagList slot="meta" tags={tags} />
 		</ContentHeader>
-		{coverUrl && <img class="mb-10 rounded-2xl" src={coverUrl} alt={mediaAlt(cover_image)} width={1200} height={630} loading="lazy" decoding="async" />}
-		<div class="prose-site">
+		{coverUrl && <img class="mb-12 w-full rounded-2xl" src={coverUrl} alt={mediaAlt(cover_image)} width={1200} height={630} loading="lazy" decoding="async" />}
+		<div class="prose-site sm:prose-lg">
 			<slot />
 		</div>
+		<footer class="mt-16 border-t border-border pt-8">
+			<a class="text-sm font-medium text-accent no-underline hover:text-accent-hover" href="/posts/">← All posts</a>
+		</footer>
 	</article>
 </Base>

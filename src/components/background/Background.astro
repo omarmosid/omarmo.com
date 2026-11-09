@@ -1,0 +1,12 @@
+---
+import WarpBackground from './WarpBackground';
+---
+
+{/*
+  Fixed behind all content. `client:idle` waits until the page is interactive, so the shader
+  never delays the text. Until then (or without WebGL) the page's plain surface colour shows.
+  Purely decorative: ignored by assistive tech and never intercepts clicks.
+*/}
+<div class="pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
+	<WarpBackground client:idle />
+</div>

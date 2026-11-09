@@ -15,7 +15,7 @@ const { id, label, optional = false } = Astro.props;
 <div class="grid gap-2">
 	<label class="text-sm font-medium text-content" for={id}>
 		{label}
-		{optional && <span class="font-normal text-muted">(optional)</span>}
+		{optional && <span class="ml-1 font-normal text-muted">(optional)</span>}
 	</label>
 	<slot />
 </div>

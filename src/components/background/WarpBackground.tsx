@@ -29,7 +29,7 @@ const MIN_PIXEL_RATIO = 1;
 const MAX_PIXEL_COUNT = 1920 * 1080;
 
 /**
- * Animated gradient wash painted in the theme's own colours, so it follows light and dark mode.
+ * Animated gradient wash painted in the site's own palette.
  * Fills its parent. With "reduce motion" on it renders a single still frame, and without WebGL it renders nothing.
  */
 export default function WarpBackground() {

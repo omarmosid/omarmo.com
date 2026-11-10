@@ -32,28 +32,6 @@ const imageUrl = new URL(imagePath, Astro.site ?? Astro.url);
 />
 <meta name="generator" content={Astro.generator} />
 
-<script is:inline>
-	(() => {
-		const root = document.documentElement;
-		const storageKey = 'theme';
-
-		const getStoredTheme = () => {
-			try {
-				const theme = localStorage.getItem(storageKey);
-				return theme === 'light' || theme === 'dark' ? theme : null;
-			} catch {
-				return null;
-			}
-		};
-
-		const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-		const theme = getStoredTheme() ?? preferredTheme;
-
-		root.classList.toggle('dark', theme === 'dark');
-		root.dataset.theme = theme;
-	})();
-</script>
-
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 

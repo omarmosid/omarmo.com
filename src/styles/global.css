@@ -4,8 +4,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
 	--font-sans: "Rubik", ui-sans-serif, system-ui, sans-serif;
 	--color-surface: var(--surface);
@@ -22,26 +20,6 @@
 }
 
 :root {
-	color-scheme: light;
-	--surface: #f8fafc;
-	--surface-raised: #ffffff;
-	--surface-subtle: #f1f5f9;
-	--border: #e2e8f0;
-	--content: #0f172a;
-	--muted: #475569;
-	--accent: #0369a1;
-	--accent-hover: #075985;
-	--accent-subtle: #f0f9ff;
-	--accent-subtle-hover: #e0f2fe;
-	--code-surface: #e2e8f0;
-	/* Animated page background (components/background). Read from JS, so not in @theme.
-	   Kept light enough that every text colour stays above WCAG AA against all three. */
-	--wash-1: #f8fafc;
-	--wash-2: #e3f1fd;
-	--wash-3: #d6ebfc;
-}
-
-.dark {
 	color-scheme: dark;
 	--surface: #020617;
 	--surface-raised: #0f172a;
@@ -54,6 +32,8 @@
 	--accent-subtle: #082f49;
 	--accent-subtle-hover: #0c4a6e;
 	--code-surface: #1e293b;
+	/* Animated page background (components/background). Read from JS, so not in @theme.
+	   Dark enough that every text colour stays above WCAG AA against all three. */
 	--wash-1: #020617;
 	--wash-2: #06304d;
 	--wash-3: #0a4468;
@@ -82,7 +62,7 @@
 }
 
 @utility prose-site {
-	@apply prose max-w-none prose-a:break-words prose-a:text-accent prose-a:decoration-accent prose-a:hover:text-accent-hover prose-blockquote:border-accent prose-blockquote:font-normal prose-blockquote:text-muted prose-li:marker:text-muted prose-code:rounded prose-code:bg-code-surface prose-code:px-1 prose-code:py-0.5 prose-code:before:content-none prose-code:after:content-none prose-img:rounded-xl dark:prose-invert;
+	@apply prose max-w-none prose-a:break-words prose-a:text-accent prose-a:decoration-accent prose-a:hover:text-accent-hover prose-blockquote:border-accent prose-blockquote:font-normal prose-blockquote:text-muted prose-li:marker:text-muted prose-code:rounded prose-code:bg-code-surface prose-code:px-1 prose-code:py-0.5 prose-code:before:content-none prose-code:after:content-none prose-img:rounded-xl prose-invert;
 }
 
 @layer components {

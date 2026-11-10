@@ -41,7 +41,8 @@
 
 @layer base {
 	html {
-		@apply scroll-smooth bg-surface text-content;
+		/* scroll-pt keeps anchor-link targets clear of the sticky header. */
+		@apply scroll-smooth scroll-pt-24 bg-surface text-content;
 	}
 
 	body {

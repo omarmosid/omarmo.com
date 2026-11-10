@@ -6,8 +6,12 @@ import AuthButton from './AuthButton.astro';
 import HeaderLink from './HeaderLink.astro';
 ---
 
-<header class="border-b border-border/60">
-	<site-nav class="container-page block py-6">
+{/*
+  Sticky: stays pinned while scrolling. The translucent, blurred surface keeps the nav legible
+  over page content and the animated background without hiding the background entirely.
+*/}
+<header class="sticky top-0 z-40 border-b border-border/60 bg-surface/70 backdrop-blur-md">
+	<site-nav class="container-page block py-4">
 		<nav class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between" aria-label="Main navigation">
 			<div class="flex items-center justify-between gap-4">
 				<a class="group flex items-center gap-3 no-underline" href="/" aria-label={SITE_TITLE}>

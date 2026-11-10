@@ -1,7 +1,8 @@
 ---
+import { Image } from 'emdash/ui';
 import Chip from '../components/Chip.astro';
 import ContentHeader from '../components/ContentHeader.astro';
-import { asDate, mediaAlt, mediaUrl, type RecipeEntry } from '../lib/emdash-content';
+import { asDate, socialImageUrl, type RecipeEntry } from '../lib/emdash-content';
 import Base from './Base.astro';
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
 
 const { recipe, readingTime } = Astro.props;
 const { cook_time, cover_image, description, ingredients = [], prep_time, publish_date, servings, title } = recipe.data;
-const coverUrl = mediaUrl(cover_image);
+const coverUrl = socialImageUrl(cover_image, Astro.locals.emdash?.getPublicMediaUrl);
 ---
 
 <Base title={title} description={description} image={coverUrl}>
@@ -23,7 +24,7 @@ const coverUrl = mediaUrl(cover_image);
 				{servings && <Chip>Serves {servings}</Chip>}
 			</div>
 		</ContentHeader>
-		{coverUrl && <img class="mb-10 rounded-2xl" src={coverUrl} alt={mediaAlt(cover_image)} width={1200} height={630} loading="lazy" decoding="async" />}
+		{cover_image && <Image image={cover_image} class="mb-10 w-full h-auto rounded-2xl" />}
 		{ingredients.length > 0 && <section class="mb-10 rounded-2xl border border-border bg-surface-raised p-5"><h2 class="mb-3 text-xl font-bold">Ingredients</h2><ul class="list-disc space-y-1 pl-5 text-content">{ingredients.map((ingredient) => <li>{ingredient}</li>)}</ul></section>}
 		<div class="prose-site">
 			<slot />

@@ -1,8 +1,9 @@
 ---
 import { getEntryTerms } from 'emdash';
+import { Image } from 'emdash/ui';
 import ContentHeader from '../components/ContentHeader.astro';
 import TagList from '../components/TagList.astro';
-import { asDate, mediaAlt, mediaUrl, type PostEntry } from '../lib/emdash-content';
+import { asDate, socialImageUrl, type PostEntry } from '../lib/emdash-content';
 import Base from './Base.astro';
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 
 const { post, readingTime } = Astro.props;
 const { cover_image, description, publish_date, title, updated_date } = post.data;
-const coverUrl = mediaUrl(cover_image);
+const coverUrl = socialImageUrl(cover_image, Astro.locals.emdash?.getPublicMediaUrl);
 const tags = await getEntryTerms('posts', post.id, 'tag');
 ---
 
@@ -22,7 +23,7 @@ const tags = await getEntryTerms('posts', post.id, 'tag');
 		<ContentHeader kicker="Post" title={title} description={description} date={asDate(publish_date)} readingTime={readingTime} updatedDate={asDate(updated_date)}>
 			<TagList slot="meta" tags={tags} />
 		</ContentHeader>
-		{coverUrl && <img class="mb-12 w-full rounded-2xl" src={coverUrl} alt={mediaAlt(cover_image)} width={1200} height={630} loading="lazy" decoding="async" />}
+		{cover_image && <Image image={cover_image} class="mb-12 w-full h-auto rounded-2xl" />}
 		<div class="prose-site sm:prose-lg">
 			<slot />
 		</div>

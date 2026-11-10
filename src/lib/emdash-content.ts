@@ -1,14 +1,5 @@
 import readingTime from 'reading-time';
-import type { ContentEntry, TaxonomyTerm } from 'emdash';
-
-export interface MediaValue {
-	id?: string;
-	url?: string;
-	src?: string;
-	alt?: string;
-	width?: number;
-	height?: number;
-}
+import type { ContentEntry, MediaValue, TaxonomyTerm } from 'emdash';
 
 export type PortableTextBlock = Record<string, any>;
 
@@ -71,13 +62,17 @@ export function entrySlug(entry: ContentEntry<Record<string, unknown>>): string 
 	return typeof entry.data.slug === 'string' ? entry.data.slug : entry.id;
 }
 
-export function mediaUrl(media: MediaValue | undefined): string | undefined {
-	if (!media) return undefined;
-	return media.url ?? media.src ?? (media.id ? `/_emdash/api/media/file/${media.id}` : undefined);
-}
-
-export function mediaAlt(media: MediaValue | undefined): string {
-	return media?.alt ?? '';
+/**
+ * Public URL of a media field, for places that need a plain string such as
+ * social-card meta tags. Pass `Astro.locals.emdash?.getPublicMediaUrl` as
+ * `resolve`. For rendering an image on the page, use EmDash's <Image> instead.
+ */
+export function socialImageUrl(
+	media: MediaValue | undefined,
+	resolve: ((storageKey: string) => string) | undefined,
+): string | undefined {
+	const storageKey = media?.meta?.storageKey;
+	return typeof storageKey === 'string' ? resolve?.(storageKey) : undefined;
 }
 
 export function readingTimeFromPortableText(blocks: PortableTextBlock[] | undefined): string | undefined {
